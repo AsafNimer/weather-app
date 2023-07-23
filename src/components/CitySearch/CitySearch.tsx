@@ -3,18 +3,27 @@ import styles from "./CitySearch.module.css";
 
 function CitySearch(): JSX.Element {
     const [location, setLocation] = useState<string>("");
+    const [citiesList, setCitiesList] = useState<[]>([]);
+    const [selectedCity, setSelectedCity] = useState<EventTarget>();
 
     const searchCity = async (value: string) => {
         //with the GEO API i first extract the LAT and LONG props which i will
         // nest in next URL in another fetch req
-        const response = await fetch(
-            `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
-                process.env.REACT_APP_API_KEY
-            }`
-        );
-        const data = response.json();
-        console.log(data);
-        // return data;
+        try {
+            const response = await fetch(
+                `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
+                    process.env.REACT_APP_API_KEY
+                }`
+            );
+
+            if (response.ok) {
+                const jsonResponse = await response.json();
+                console.log(jsonResponse);
+                setCitiesList(jsonResponse);
+            }
+        } catch (err) {
+            console.log("error on fetch: ", err);
+        }
     };
 
     const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +35,12 @@ function CitySearch(): JSX.Element {
         } else {
             searchCity(value);
         }
+    };
+
+    const handleCityClick = (e: React.MouseEvent<HTMLElement>) => {
+        const citySelected: EventTarget = e.target;
+        setSelectedCity(citySelected);
+        console.log("city selected:", citySelected);
     };
 
     return (
@@ -56,8 +71,18 @@ function CitySearch(): JSX.Element {
                 </svg>
             </button>
             <div className={styles.search_results_container}>
-                <ul>
-                    <li></li>
+                <ul className={styles.cities_list}>
+                    {citiesList.map((city: { name: string }, index: number) => (
+                        <li
+                            key={`${city.name}-${index}`}
+                            onClick={handleCityClick}
+                            className={styles.city_item}
+                        >
+                            <button className={styles.cityClick}>
+                                {city.name}
+                            </button>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

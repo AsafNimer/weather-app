@@ -41,6 +41,29 @@
         height: fit-content;
         margin-bottom: 2rem;
     }
+
+    .cities_list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .city_item {
+        position: relative;
+        right: 2.2rem;
+        font-family: var(--font-family);
+    }
+
+    .cityClick {
+        background-color: none;
+        border: none;
+        font-family: var(--font-family);
+    }
+
+    .cityClick:hover {
+        background-color: gray;
+        color: white;
+    }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
