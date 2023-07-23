@@ -1,1 +1,1 @@
-reusable function across different components
+reusable functions across different components
