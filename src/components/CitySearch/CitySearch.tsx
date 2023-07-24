@@ -1,14 +1,13 @@
 import { useState, ChangeEvent } from "react";
 import styles from "./CitySearch.module.css";
+import { resultType } from "/Users/asafnimer/Desktop/myProjects/weather-app/my-app/src/types";
 
 function CitySearch(): JSX.Element {
-    const [location, setLocation] = useState<string>("");
-    const [citiesList, setCitiesList] = useState<[]>([]);
-    const [selectedCity, setSelectedCity] = useState<EventTarget>();
+    const [userInput, setUserInput] = useState<string>("");
+    const [searchResults, setSearchResults] = useState<[]>([]);
+    const [city, setCity] = useState<resultType | null>(null);
 
     const searchCity = async (value: string) => {
-        //with the GEO API i first extract the LAT and LONG props which i will
-        // nest in next URL in another fetch req
         try {
             const response = await fetch(
                 `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
@@ -18,8 +17,8 @@ function CitySearch(): JSX.Element {
 
             if (response.ok) {
                 const jsonResponse = await response.json();
-                console.log(jsonResponse);
-                setCitiesList(jsonResponse);
+                console.log("first fetch response: ", jsonResponse);
+                setSearchResults(jsonResponse);
             }
         } catch (err) {
             console.log("error on fetch: ", err);
@@ -27,20 +26,30 @@ function CitySearch(): JSX.Element {
     };
 
     const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value.trim();
-        setLocation(value);
+        const value = e.target.value;
+        setUserInput(value);
 
         if (value === "") {
-            return;
+            setSearchResults([]);
         } else {
             searchCity(value);
         }
     };
 
-    const handleCityClick = (e: React.MouseEvent<HTMLElement>) => {
-        const citySelected: EventTarget = e.target;
-        setSelectedCity(citySelected);
-        console.log("city selected:", citySelected);
+    const onCitySelect = async (city: resultType) => {
+        console.log(city.name);
+
+        try {
+            const response = await fetch(
+                `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+            );
+            if (response.ok) {
+                const jsonResponse = await response.json();
+                console.log("second fetch response:", jsonResponse);
+            }
+        } catch (err) {
+            console.log("error fetching second API");
+        }
     };
 
     return (
@@ -55,7 +64,7 @@ function CitySearch(): JSX.Element {
             </svg>
             <input
                 type="text"
-                value={location}
+                value={userInput}
                 className={styles.user_input}
                 onChange={onInputChange}
                 placeholder="Enter your location"
@@ -70,21 +79,19 @@ function CitySearch(): JSX.Element {
                     <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
                 </svg>
             </button>
-            <div className={styles.search_results_container}>
-                <ul className={styles.cities_list}>
-                    {citiesList.map((city: { name: string }, index: number) => (
-                        <li
-                            key={`${city.name}-${index}`}
-                            onClick={handleCityClick}
-                            className={styles.city_item}
-                        >
-                            <button className={styles.cityClick}>
-                                {city.name}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <ul className={styles.cities_list}>
+                {searchResults.map((result: resultType, index: number) => (
+                    <li
+                        key={`${result.name}-${index}`}
+                        onClick={() => onCitySelect(result)}
+                        className={styles.city_item}
+                    >
+                        <button className={styles.cityClick}>
+                            {result.name}
+                        </button>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }

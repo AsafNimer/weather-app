@@ -1,2 +1,5 @@
-//here i defined TYPES i would like to re-use multiple times
-export {};
+export type resultType = {
+    name: string;
+    lat: number;
+    lon: number;
+};
