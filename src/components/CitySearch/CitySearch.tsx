@@ -1,6 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import styles from "./CitySearch.module.css";
-import { resultType } from "/Users/asafnimer/Desktop/myProjects/weather-app/my-app/src/types";
+import { resultType } from "types";
 
 function CitySearch(): JSX.Element {
     const [userInput, setUserInput] = useState<string>("");
