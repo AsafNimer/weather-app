@@ -36,9 +36,11 @@ function CitySearch(): JSX.Element {
         }
     };
 
-    const onCitySelect = async (city: resultType) => {
+    const onCitySelect = (city: resultType) => {
         setObservedCity(city);
+    };
 
+    const getForecast = async (city: resultType) => {
         try {
             const response = await fetch(
                 `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
@@ -50,6 +52,11 @@ function CitySearch(): JSX.Element {
         } catch (err) {
             console.log("error fetching second API");
         }
+    };
+
+    const onCitySubmit = () => {
+        if (!obserevedCity) return;
+        getForecast(obserevedCity);
     };
 
     useEffect(() => {
@@ -76,7 +83,7 @@ function CitySearch(): JSX.Element {
                 onChange={onInputChange}
                 placeholder="Enter your location"
             />
-            <button className={styles.search_btn}>
+            <button onClick={onCitySubmit} className={styles.search_btn}>
                 <svg
                     className={styles.magnifying_glass_icon}
                     xmlns="http://www.w3.org/2000/svg"
