@@ -1,11 +1,11 @@
-import { useState, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import styles from "./CitySearch.module.css";
 import { resultType } from "/Users/asafnimer/Desktop/myProjects/weather-app/my-app/src/types";
 
 function CitySearch(): JSX.Element {
     const [userInput, setUserInput] = useState<string>("");
     const [searchResults, setSearchResults] = useState<[]>([]);
-    const [city, setCity] = useState<resultType | null>(null);
+    const [obserevedCity, setObservedCity] = useState<resultType | null>(null);
 
     const searchCity = async (value: string) => {
         try {
@@ -37,7 +37,7 @@ function CitySearch(): JSX.Element {
     };
 
     const onCitySelect = async (city: resultType) => {
-        console.log(city.name);
+        setObservedCity(city);
 
         try {
             const response = await fetch(
@@ -51,6 +51,13 @@ function CitySearch(): JSX.Element {
             console.log("error fetching second API");
         }
     };
+
+    useEffect(() => {
+        if (obserevedCity) {
+            setUserInput(obserevedCity.name);
+            setSearchResults([]);
+        }
+    }, [obserevedCity]);
 
     return (
         <div className="search_container">
