@@ -1,6 +1,6 @@
 import styles from "./SwitchBtn.module.css";
 
-function SwitchBtn() {
+function SwitchBtn(): JSX.Element {
     return (
         <div className={styles.switch_container}>
             <input
