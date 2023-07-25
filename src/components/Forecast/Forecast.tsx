@@ -1,11 +1,7 @@
 import styles from "./Forecast.module.css";
 
 function Forecast(): JSX.Element {
-    return (
-        <div className={styles.forecast_component_container}>
-            <h4 className={styles.forecastH4}>Forecast component</h4>
-        </div>
-    );
+    return <div className={styles.forecast_component_container}></div>;
 }
 
 export { Forecast };
