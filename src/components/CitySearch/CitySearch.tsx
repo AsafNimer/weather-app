@@ -1,6 +1,7 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import styles from "./CitySearch.module.css";
 import { resultType } from "types";
+import { SwitchBtn } from "components/SwitchBtn/SwitchBtn";
 
 function CitySearch(): JSX.Element {
     const [userInput, setUserInput] = useState<string>("");
@@ -68,14 +69,7 @@ function CitySearch(): JSX.Element {
 
     return (
         <div className={styles.search_container}>
-            <div className={styles.switch_container}>
-                <input
-                    className={styles.switch_input}
-                    type="checkbox"
-                    id="switch"
-                />
-                <label className={styles.switch_label} htmlFor="switch"></label>
-            </div>
+            <SwitchBtn />
             <div className={styles.input_container}>
                 <svg
                     className={styles.location_icon}
