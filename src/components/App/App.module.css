@@ -11,18 +11,23 @@ html {
     font-size: 15px;
 }
 
-ul {
-    list-style-type: none;
-}
-
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     .App {
         position: relative;
-        top: 5rem;
+        top: 1rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .search_box {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .forecast_container {
     }
 }
 @media only screen and (max-width: 480px) and (orientation: portrait) {

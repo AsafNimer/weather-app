@@ -1,7 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import styles from "./CitySearch.module.css";
 import { resultType } from "types";
-import { SwitchBtn } from "components/SwitchBtn/SwitchBtn";
 
 function CitySearch(): JSX.Element {
     const [userInput, setUserInput] = useState<string>("");
@@ -69,16 +68,7 @@ function CitySearch(): JSX.Element {
 
     return (
         <div className={styles.search_container}>
-            <SwitchBtn />
             <div className={styles.input_container}>
-                <svg
-                    className={styles.location_icon}
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="1em"
-                    viewBox="0 0 384 512"
-                >
-                    <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-                </svg>
                 <input
                     type="text"
                     value={userInput}
@@ -104,7 +94,7 @@ function CitySearch(): JSX.Element {
                         onClick={() => onCitySelect(result)}
                         className={styles.city_item}
                     >
-                        <button className={styles.cityClick}>
+                        <button className={styles.city_btn}>
                             {result.name}
                         </button>
                     </li>
