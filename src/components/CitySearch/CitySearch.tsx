@@ -5,7 +5,7 @@ import { resultType } from "types";
 function CitySearch(): JSX.Element {
     const [userInput, setUserInput] = useState<string>("");
     const [searchResults, setSearchResults] = useState<[]>([]);
-    const [obserevedCity, setObservedCity] = useState<resultType | null>(null);
+    const [observedCity, setObservedCity] = useState<resultType | null>(null);
 
     const searchCity = async (value: string) => {
         try {
@@ -25,21 +25,6 @@ function CitySearch(): JSX.Element {
         }
     };
 
-    const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        setUserInput(value);
-
-        if (value === "") {
-            setSearchResults([]);
-        } else {
-            searchCity(value);
-        }
-    };
-
-    const onCitySelect = (city: resultType) => {
-        setObservedCity(city);
-    };
-
     const getForecast = async (city: resultType) => {
         try {
             const response = await fetch(
@@ -54,17 +39,39 @@ function CitySearch(): JSX.Element {
         }
     };
 
-    const onCitySubmit = () => {
-        if (!obserevedCity) return;
-        getForecast(obserevedCity);
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setUserInput(value);
+
+        if (value === "") {
+            setSearchResults([]);
+        } else {
+            searchCity(value);
+        }
+    };
+
+    const handleCitySelect = (city: resultType) => {
+        setObservedCity(city);
+    };
+
+    const handleCitySubmit = () => {
+        setSearchResults([]);
+
+        if (!observedCity) return;
+        getForecast(observedCity);
+    };
+
+    const handleClearTxt = () => {
+        setUserInput("");
+        setSearchResults([]);
     };
 
     useEffect(() => {
-        if (obserevedCity) {
-            setUserInput(obserevedCity.name);
+        if (observedCity) {
+            setUserInput(observedCity.name);
             setSearchResults([]);
         }
-    }, [obserevedCity]);
+    }, [observedCity]);
 
     return (
         <div className={styles.search_container}>
@@ -73,10 +80,22 @@ function CitySearch(): JSX.Element {
                     type="text"
                     value={userInput}
                     className={styles.user_input}
-                    onChange={onInputChange}
+                    onChange={handleInputChange}
                     placeholder="Enter your location"
                 />
-                <button onClick={onCitySubmit} className={styles.search_btn}>
+                <svg
+                    onClick={handleClearTxt}
+                    className={styles.x_icon}
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 384 512"
+                >
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                </svg>
+                <button
+                    onClick={handleCitySubmit}
+                    className={styles.search_btn}
+                >
                     <svg
                         className={styles.magnifying_glass_icon}
                         xmlns="http://www.w3.org/2000/svg"
@@ -91,11 +110,20 @@ function CitySearch(): JSX.Element {
                 {searchResults.map((result: resultType, index: number) => (
                     <li
                         key={`${result.name}-${index}`}
-                        onClick={() => onCitySelect(result)}
+                        onClick={() => handleCitySelect(result)}
                         className={styles.city_item}
                     >
                         <button className={styles.city_btn}>
-                            {result.name}
+                            <svg
+                                className={styles.location_icon}
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="1em"
+                                viewBox="0 0 384 512"
+                            >
+                                <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                            </svg>
+                            {result.name}, {result.country}{" "}
+                            {result.state ? result.state : ""}
                         </button>
                     </li>
                 ))}

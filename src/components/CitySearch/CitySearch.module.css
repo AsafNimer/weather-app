@@ -7,6 +7,7 @@ ul {
         position: relative;
         bottom: 1.4rem;
         left: 0.6rem;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -15,25 +16,28 @@ ul {
     .input_container {
         position: relative;
         top: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .magnifying_glass_icon {
-        height: 1.2rem;
-        width: 1.2rem;
-    }
-
-    .location_icon {
-        position: relative;
-        top: 0.3rem;
         height: 1.5rem;
         width: 1.5rem;
+    }
+
+    .x_icon {
+        position: relative;
+        z-index: 1;
+        right: 1rem;
+        width: 1.2rem;
+        height: 1.2rem;
     }
 
     .search_btn {
         position: relative;
         top: 0.2rem;
         height: 2rem;
-        border: 1px solid black;
         border: none;
         background-color: white;
     }
@@ -41,8 +45,7 @@ ul {
     .user_input {
         padding-left: 0.2rem;
         height: 1.6rem;
-        width: 10rem;
-        margin-left: 0.5rem;
+        width: 15rem;
         border: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.4);
         outline: none;
@@ -51,23 +54,30 @@ ul {
     .cities_list {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        gap: 2rem;
         position: relative;
-        top: 2.7rem;
-        right: 0.7rem;
-        width: 7.6rem;
+        top: 4rem;
+        right: 0.5rem;
         margin-bottom: 2rem;
+        width: 17rem;
     }
 
     .city_item {
-        position: relative;
-        right: 2.4rem;
-        font-family: var(--font-family);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        padding-bottom: 1rem;
     }
 
     .city_btn {
         border: none;
+        font-size: 1rem;
         font-family: var(--font-family);
+        display: flex;
+        gap: 1rem;
+    }
+
+    .location_icon {
+        height: 1.3rem;
+        width: 1.3rem;
     }
 }
 
