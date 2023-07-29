@@ -1,8 +1,15 @@
-.forecastH4 {
-    color: blue;
-}
-
 @media only screen and (max-width: 480px) and (orientation: portrait) {
+    .forecast_component_container {
+        /* border: black solid 1px; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .observed_city_title {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 1.5rem;
+    }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {

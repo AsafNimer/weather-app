@@ -1,10 +1,8 @@
-import { CitySearch } from "./CitySearch/CitySearch";
-import { Current } from "./Current/Current";
+import { Today } from "./Today/Today";
 import { Hourly } from "./Hourly/Hourly";
 import { Forecast } from "./Forecast/Forecast";
 import { SwitchBtn } from "./SwitchBtn/SwitchBtn";
-export { Current };
+export { Today };
 export { Hourly };
 export { Forecast };
-export { CitySearch };
 export { SwitchBtn };

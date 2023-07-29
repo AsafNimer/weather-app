@@ -1,5 +1,0 @@
-file static files such as: 
-logo 
-favicon
-fonts
-images 
