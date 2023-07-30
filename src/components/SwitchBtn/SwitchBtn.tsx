@@ -1,15 +1,12 @@
 import styles from "./SwitchBtn.module.css";
 import { getForecast } from "services/Fetch";
-import {
-    useForecastContext,
-    useObservedCityContext,
-    useUnitsContext,
-} from "hooks/context/ForecastContext";
+import { ForecastContext } from "hooks/context/ForecastContext";
+import { useContext } from "react";
 
 function SwitchBtn(): JSX.Element {
-    const { setForecast } = useForecastContext();
-    const { observedCity } = useObservedCityContext();
-    const { units, setUnits } = useUnitsContext();
+    const { setForecast, forecast } = useContext(ForecastContext);
+    const { observedCity } = useContext(ForecastContext);
+    const { units, setUnits } = useContext(ForecastContext);
 
     const checkbox = document.getElementById("switch") as HTMLInputElement;
 
@@ -19,6 +16,7 @@ function SwitchBtn(): JSX.Element {
         console.log("forecast in SwitchBtn.tsx: ");
 
         if (!observedCity) {
+            console.log("returned");
             return;
         } else {
             if (checkbox.checked) {
@@ -26,6 +24,7 @@ function SwitchBtn(): JSX.Element {
                 console.log("units:", units);
                 getForecast(observedCity, units).then((data) => {
                     setForecast(data);
+                    console.log("forecast is: ", forecast);
                 });
 
                 console.log("IT'S CHECKED . . .screen shows Celcius");

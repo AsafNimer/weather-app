@@ -32,7 +32,7 @@
         font-weight: bold;
         font-size: 0.9rem;
         position: absolute;
-        content: "\2103";
+        content: "\2109";
         top: 0.5rem;
         left: 0.45rem;
     }
@@ -42,7 +42,7 @@
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
         font-weight: bold;
         position: absolute;
-        content: "\2109";
+        content: "\2103";
         top: 0.5rem;
         left: 0.45rem;
         opacity: 0;

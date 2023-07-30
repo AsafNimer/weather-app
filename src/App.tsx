@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEvent } from "react";
-import { ForecastType, ResultType } from "types";
+import { ForecastType, FirstApiResultType } from "types";
 import { Forecast } from "./components/components";
 import { ForecastContext } from "hooks/context/ForecastContext";
 import { getForecast, searchCity } from "services/Fetch";
@@ -8,7 +8,9 @@ import styles from "./App.module.css";
 const App: React.FC = () => {
     const [userInput, setUserInput] = useState<string>("");
     const [searchResults, setSearchResults] = useState<[]>([]);
-    const [observedCity, setObservedCity] = useState<ResultType | null>(null);
+    const [observedCity, setObservedCity] = useState<FirstApiResultType | null>(
+        null
+    );
     const [forecast, setForecast] = useState<ForecastType | null>(null);
     const [units, setUnits] = useState<string>("metric");
 
@@ -25,7 +27,7 @@ const App: React.FC = () => {
         }
     };
 
-    const handleCitySelect = (city: ResultType) => {
+    const handleCitySelect = (city: FirstApiResultType) => {
         setObservedCity(city);
     };
 
@@ -49,7 +51,11 @@ const App: React.FC = () => {
 
     useEffect(() => {
         if (observedCity) {
-            setUserInput(observedCity.name);
+            setUserInput(
+                `${observedCity.name} ${observedCity.country} ${
+                    observedCity.state ? observedCity.state : ""
+                }`
+            );
             setSearchResults([]);
         }
     }, [observedCity]);
@@ -90,26 +96,28 @@ const App: React.FC = () => {
                     </button>
                 </div>
                 <ul className={styles.cities_list}>
-                    {searchResults.map((result: ResultType, index: number) => (
-                        <li
-                            key={`${result.name}-${index}`}
-                            onClick={() => handleCitySelect(result)}
-                            className={styles.city_item}
-                        >
-                            <button className={styles.city_btn}>
-                                <svg
-                                    className={styles.location_icon}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    height="1em"
-                                    viewBox="0 0 384 512"
-                                >
-                                    <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-                                </svg>
-                                {result.name}, {result.country}{" "}
-                                {result.state ? result.state : ""}
-                            </button>
-                        </li>
-                    ))}
+                    {searchResults.map(
+                        (result: FirstApiResultType, index: number) => (
+                            <li
+                                key={`${result.name}-${index}`}
+                                onClick={() => handleCitySelect(result)}
+                                className={styles.city_item}
+                            >
+                                <button className={styles.city_btn}>
+                                    <svg
+                                        className={styles.location_icon}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        height="1em"
+                                        viewBox="0 0 384 512"
+                                    >
+                                        <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                                    </svg>
+                                    {result.name}, {result.country}{" "}
+                                    {result.state ? result.state : ""}
+                                </button>
+                            </li>
+                        )
+                    )}
                 </ul>
             </div>
 
@@ -119,6 +127,7 @@ const App: React.FC = () => {
                     setForecast,
                     units,
                     setUnits,
+                    observedCity,
                 }}
             >
                 <Forecast observedCity={observedCity} />

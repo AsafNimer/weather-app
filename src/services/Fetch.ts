@@ -1,4 +1,4 @@
-import { ResultType } from "types";
+import { FirstApiResultType } from "types";
 
 export const searchCity = async (value: string) => {
     try {
@@ -18,7 +18,7 @@ export const searchCity = async (value: string) => {
     }
 };
 
-export const getForecast = async (city: ResultType, units: string) => {
+export const getForecast = async (city: FirstApiResultType, units: string) => {
     try {
         const response = await fetch(
             `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface ResultType {
+export interface FirstApiResultType {
     name: string;
     local_names: { [key: string]: string };
     lat: number;
@@ -10,7 +10,7 @@ export interface ResultType {
 }
 
 export type addProps = {
-    observedCity: ResultType | null;
+    observedCity: FirstApiResultType | null;
 };
 
 export type ForecastType = null | {
@@ -46,14 +46,5 @@ export type ForecastContextType = {
     setForecast: Dispatch<SetStateAction<ForecastType>>;
     units: string;
     setUnits: Dispatch<SetStateAction<string>>;
-};
-
-export type ObservedCityContextType = {
-    observedCity: ResultType;
-    setObservedCity: Dispatch<SetStateAction<ResultType[]>>;
-};
-
-export type UnitsContextType = {
-    units: string;
-    setUnits: Dispatch<SetStateAction<string>>;
+    observedCity: FirstApiResultType | null;
 };
