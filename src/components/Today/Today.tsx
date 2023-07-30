@@ -7,7 +7,13 @@ function Today(): JSX.Element {
     return (
         <div className={styles.today_component_container}>
             <>
-                <h1>Feels like: {forecast?.main.feels_like}°</h1>
+                <h1>
+                    Feels like:{" "}
+                    {forecast !== null
+                        ? Math.floor(forecast.main.feels_like)
+                        : ""}
+                    °
+                </h1>
             </>
         </div>
     );

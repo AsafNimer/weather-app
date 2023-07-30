@@ -20,7 +20,7 @@ function SwitchBtn(): JSX.Element {
             return;
         } else {
             if (checkbox.checked) {
-                setUnits("metrics");
+                setUnits("metric");
                 console.log("units:", units);
                 getForecast(observedCity, units).then((data) => {
                     setForecast(data);
