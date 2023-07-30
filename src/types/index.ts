@@ -44,6 +44,8 @@ export type ForecastType = null | {
 export type ForecastContextType = {
     forecast: ForecastType;
     setForecast: Dispatch<SetStateAction<ForecastType>>;
+    units: string;
+    setUnits: Dispatch<SetStateAction<string>>;
 };
 
 export type ObservedCityContextType = {

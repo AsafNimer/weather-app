@@ -10,40 +10,7 @@ const App: React.FC = () => {
     const [searchResults, setSearchResults] = useState<[]>([]);
     const [observedCity, setObservedCity] = useState<ResultType | null>(null);
     const [forecast, setForecast] = useState<ForecastType | null>(null);
-    const [units, setUnits] = useState<string>("");
-
-    // const searchCity = async (value: string) => {
-    //     try {
-    //         const response = await fetch(
-    //             `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
-    //                 process.env.REACT_APP_API_KEY
-    //             }`
-    //         );
-
-    //         if (response.ok) {
-    //             const jsonResponse = await response.json();
-    //             console.log("first fetch response: ", jsonResponse);
-    //             setSearchResults(jsonResponse);
-    //         }
-    //     } catch (err) {
-    //         console.log("error on fetch: ", err);
-    //     }
-    // };
-
-    // const getForecast = async (city: resultType) => {
-    //     try {
-    //         const response = await fetch(
-    //             `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
-    //         );
-    //         if (response.ok) {
-    //             const jsonResponse = await response.json();
-    //             console.log("second fetch response:", jsonResponse);
-    //             setForecast(jsonResponse);
-    //         }
-    //     } catch (err) {
-    //         console.log("error fetching second API");
-    //     }
-    // };
+    const [units, setUnits] = useState<string>("metric");
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -69,6 +36,7 @@ const App: React.FC = () => {
             return;
         } else {
             getForecast(observedCity, units).then((data) => {
+                console.log("units in App.js:", units);
                 setForecast(data);
             });
         }
@@ -149,9 +117,8 @@ const App: React.FC = () => {
                 value={{
                     forecast,
                     setForecast,
-                    // ,
-                    // units,
-                    // setUnits,
+                    units,
+                    setUnits,
                 }}
             >
                 <Forecast observedCity={observedCity} />

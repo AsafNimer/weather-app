@@ -14,19 +14,29 @@ function SwitchBtn(): JSX.Element {
     const checkbox = document.getElementById("switch") as HTMLInputElement;
 
     const handleSwitch = () => {
-        if (checkbox.checked) {
-            setUnits("metrics");
-            getForecast(observedCity, units).then((data) => {
-                setForecast(data);
-            });
+        console.log("units in SwitchBtn.tsx:", units);
+        console.log("observedCity in SwitchBtn.tsx:", observedCity);
+        console.log("forecast in SwitchBtn.tsx: ");
 
-            console.log("IT'S CHECKED . . .screen shows Celcius");
+        if (!observedCity) {
+            return;
         } else {
-            setUnits("imperial");
-            getForecast(observedCity, units).then((data) => {
-                setForecast(data);
-            });
-            console.log("NOT CHECKED . . . screen shows Fahrenheit");
+            if (checkbox.checked) {
+                setUnits("metrics");
+                console.log("units:", units);
+                getForecast(observedCity, units).then((data) => {
+                    setForecast(data);
+                });
+
+                console.log("IT'S CHECKED . . .screen shows Celcius");
+            } else {
+                setUnits("imperial");
+                console.log("units:", units);
+                getForecast(observedCity, units).then((data) => {
+                    setForecast(data);
+                });
+                console.log("NOT CHECKED . . . screen shows Fahrenheit");
+            }
         }
     };
 
