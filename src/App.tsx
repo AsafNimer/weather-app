@@ -34,7 +34,8 @@ const App: React.FC = () => {
     const handleCitySubmit = () => {
         setSearchResults([]);
 
-        if (!observedCity) {
+        if (!observedCity || !userInput) {
+            console.log("return");
             return;
         } else {
             getForecast(observedCity, units).then((data) => {
