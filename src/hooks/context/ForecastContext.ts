@@ -1,8 +1,20 @@
 import { createContext, useContext } from "react";
-import { ForecastContextType } from "types";
+import {
+    ForecastContextType,
+    ObservedCityContextType,
+    UnitsContextType,
+} from "types";
 
 export const ForecastContext = createContext<ForecastContextType>(
     {} as ForecastContextType
+);
+
+export const ObservedCityContext = createContext<ObservedCityContextType>(
+    {} as ObservedCityContextType
+);
+
+export const unitsContext = createContext<UnitsContextType>(
+    {} as UnitsContextType
 );
 
 export function useForecastContext() {
@@ -14,4 +26,16 @@ export function useForecastContext() {
         );
     }
     return forecast;
+}
+
+export function useObservedCityContext() {
+    const observedCity = useContext(ObservedCityContext);
+
+    return observedCity;
+}
+
+export function useUnitsContext() {
+    const units = useContext(unitsContext);
+
+    return units;
 }

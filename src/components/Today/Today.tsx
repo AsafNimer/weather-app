@@ -2,7 +2,7 @@ import styles from "./Today.module.css";
 import { useForecastContext } from "hooks/context/ForecastContext";
 
 function Today(): JSX.Element {
-    const { forecast, setForecast } = useForecastContext();
+    const { forecast } = useForecastContext();
 
     return (
         <div className={styles.today_component_container}>

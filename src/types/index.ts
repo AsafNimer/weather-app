@@ -1,15 +1,16 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface resultType {
+export interface ResultType {
     name: string;
-    country: string;
-    state: string;
+    local_names: { [key: string]: string };
     lat: number;
     lon: number;
+    country: string;
+    state: string;
 }
 
 export type addProps = {
-    observedCity: resultType | null;
+    observedCity: ResultType | null;
 };
 
 export type ForecastType = null | {
@@ -43,4 +44,14 @@ export type ForecastType = null | {
 export type ForecastContextType = {
     forecast: ForecastType;
     setForecast: Dispatch<SetStateAction<ForecastType>>;
+};
+
+export type ObservedCityContextType = {
+    observedCity: ResultType;
+    setObservedCity: Dispatch<SetStateAction<ResultType[]>>;
+};
+
+export type UnitsContextType = {
+    units: string;
+    setUnits: Dispatch<SetStateAction<string>>;
 };

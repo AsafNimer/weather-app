@@ -1,47 +1,49 @@
 import { useState, useEffect, ChangeEvent } from "react";
-import styles from "./App.module.css";
-import { ForecastType, resultType } from "types";
+import { ForecastType, ResultType } from "types";
 import { Forecast } from "./components/components";
 import { ForecastContext } from "hooks/context/ForecastContext";
+import { getForecast, searchCity } from "services/Fetch";
+import styles from "./App.module.css";
 
 const App: React.FC = () => {
     const [userInput, setUserInput] = useState<string>("");
     const [searchResults, setSearchResults] = useState<[]>([]);
-    const [observedCity, setObservedCity] = useState<resultType | null>(null);
+    const [observedCity, setObservedCity] = useState<ResultType | null>(null);
     const [forecast, setForecast] = useState<ForecastType | null>(null);
+    const [units, setUnits] = useState<string>("");
 
-    const searchCity = async (value: string) => {
-        try {
-            const response = await fetch(
-                `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
-                    process.env.REACT_APP_API_KEY
-                }`
-            );
+    // const searchCity = async (value: string) => {
+    //     try {
+    //         const response = await fetch(
+    //             `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
+    //                 process.env.REACT_APP_API_KEY
+    //             }`
+    //         );
 
-            if (response.ok) {
-                const jsonResponse = await response.json();
-                console.log("first fetch response: ", jsonResponse);
-                setSearchResults(jsonResponse);
-            }
-        } catch (err) {
-            console.log("error on fetch: ", err);
-        }
-    };
+    //         if (response.ok) {
+    //             const jsonResponse = await response.json();
+    //             console.log("first fetch response: ", jsonResponse);
+    //             setSearchResults(jsonResponse);
+    //         }
+    //     } catch (err) {
+    //         console.log("error on fetch: ", err);
+    //     }
+    // };
 
-    const getForecast = async (city: resultType) => {
-        try {
-            const response = await fetch(
-                `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
-            );
-            if (response.ok) {
-                const jsonResponse = await response.json();
-                console.log("second fetch response:", jsonResponse);
-                setForecast(jsonResponse);
-            }
-        } catch (err) {
-            console.log("error fetching second API");
-        }
-    };
+    // const getForecast = async (city: resultType) => {
+    //     try {
+    //         const response = await fetch(
+    //             `http://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+    //         );
+    //         if (response.ok) {
+    //             const jsonResponse = await response.json();
+    //             console.log("second fetch response:", jsonResponse);
+    //             setForecast(jsonResponse);
+    //         }
+    //     } catch (err) {
+    //         console.log("error fetching second API");
+    //     }
+    // };
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -50,19 +52,26 @@ const App: React.FC = () => {
         if (value === "") {
             setSearchResults([]);
         } else {
-            searchCity(value);
+            searchCity(value).then((data) => {
+                setSearchResults(data);
+            });
         }
     };
 
-    const handleCitySelect = (city: resultType) => {
+    const handleCitySelect = (city: ResultType) => {
         setObservedCity(city);
     };
 
     const handleCitySubmit = () => {
         setSearchResults([]);
 
-        if (!observedCity) return;
-        getForecast(observedCity);
+        if (!observedCity) {
+            return;
+        } else {
+            getForecast(observedCity, units).then((data) => {
+                setForecast(data);
+            });
+        }
     };
 
     const handleClearTxt = () => {
@@ -113,7 +122,7 @@ const App: React.FC = () => {
                     </button>
                 </div>
                 <ul className={styles.cities_list}>
-                    {searchResults.map((result: resultType, index: number) => (
+                    {searchResults.map((result: ResultType, index: number) => (
                         <li
                             key={`${result.name}-${index}`}
                             onClick={() => handleCitySelect(result)}
@@ -135,7 +144,16 @@ const App: React.FC = () => {
                     ))}
                 </ul>
             </div>
-            <ForecastContext.Provider value={{ forecast, setForecast }}>
+
+            <ForecastContext.Provider
+                value={{
+                    forecast,
+                    setForecast,
+                    // ,
+                    // units,
+                    // setUnits,
+                }}
+            >
                 <Forecast observedCity={observedCity} />
             </ForecastContext.Provider>
         </div>
