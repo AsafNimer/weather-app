@@ -2,17 +2,17 @@ import { FirstApiResultType } from "types";
 
 const URL: string = "api.openweathermap.org";
 
-export const searchCity = async (value: string) => {
+const fetchData = async (
+    url: string,
+    value: string | FirstApiResultType,
+    units?: string
+) => {
     try {
-        const response = await fetch(
-            `http://${URL}/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
-                process.env.REACT_APP_API_KEY
-            }`
-        );
+        const response = await fetch(url);
 
         if (response.ok) {
             const jsonResponse = await response.json();
-            console.log("first fetch response: ", jsonResponse);
+            console.log("Fetch response: ", jsonResponse);
             return jsonResponse;
         }
     } catch (err) {
@@ -20,32 +20,39 @@ export const searchCity = async (value: string) => {
     }
 };
 
-export const current = async (city: FirstApiResultType, units: string) => {
-    try {
-        const response = await fetch(
-            `http://${URL}/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
-        );
-        if (response.ok) {
-            const jsonResponse = await response.json();
-            console.log("Current fetch response:", jsonResponse);
-            return jsonResponse;
-        }
-    } catch (err) {
-        console.log("error fetching CurrentWeather API");
-    }
+export const searchCity = (value: string) => {
+    const response = fetchData(
+        `http://${URL}/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
+            process.env.REACT_APP_API_KEY
+        }`,
+        value
+    );
+
+    return response;
 };
 
-export const getForecast = async (city: FirstApiResultType, units: string) => {
-    try {
-        const response = await fetch(
-            `http://${URL}/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
-        );
-        if (response.ok) {
-            const jsonResponse = await response.json();
-            console.log("Forecast fetch response:", jsonResponse);
-            return jsonResponse;
-        }
-    } catch (err) {
-        console.log("error fetching forcast API");
-    }
+export const current = (value: FirstApiResultType, units: string) => {
+    const response = fetchData(
+        `http://${URL}/data/2.5/weather?lat=${value.lat}&lon=${value.lon}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`,
+        value,
+        units
+    );
+    return response;
+};
+
+export const getForecast = (value: FirstApiResultType, units: string) => {
+    const response = fetchData(
+        `http://${URL}/data/2.5/forecast?lat=${value.lat}&lon=${value.lon}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`,
+        value,
+        units
+    );
+    return response;
+};
+
+export const currentPollution = (value: FirstApiResultType) => {
+    const response = fetchData(
+        `http://${URL}/data/2.5/air_pollution?lat=${value.lat}&lon=${value.lon}&appid=${process.env.REACT_APP_API_KEY}`,
+        value
+    );
+    return response;
 };

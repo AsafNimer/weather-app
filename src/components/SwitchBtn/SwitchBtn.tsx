@@ -4,16 +4,18 @@ import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 
 function SwitchBtn(): JSX.Element {
-    const { setForecast } = useContext(ForecastContext);
-    const { observedCity } = useContext(ForecastContext);
-    const { units, setUnits } = useContext(ForecastContext);
-    const { userInput } = useContext(ForecastContext);
-    const { setCurrentWeather } = useContext(ForecastContext);
+    const {
+        setForecast,
+        observedCity,
+        units,
+        setUnits,
+        userInput,
+        setCurrentWeather,
+    } = useContext(ForecastContext);
 
     const checkbox = document.getElementById("switch") as HTMLInputElement;
     const handleSwitch = () => {
         if (!observedCity || !userInput) {
-            //should i leave the || !user input?
             console.log("returned");
             return;
         } else {

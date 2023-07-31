@@ -1,8 +1,13 @@
 import { useState, useEffect, ChangeEvent } from "react";
-import { ForecastType, FirstApiResultType } from "types";
+import { CurrentType, FirstApiResultType, pollutionType } from "types";
 import { Forecast } from "./components/components";
 import { ForecastContext } from "hooks/context/ForecastContext";
-import { getForecast, searchCity, current } from "services/Fetch";
+import {
+    getForecast,
+    searchCity,
+    current,
+    currentPollution,
+} from "services/Fetch";
 import styles from "./App.module.css";
 
 const App: React.FC = () => {
@@ -11,10 +16,11 @@ const App: React.FC = () => {
     const [observedCity, setObservedCity] = useState<FirstApiResultType | null>(
         null
     );
-    const [currentWeather, setCurrentWeather] = useState<ForecastType | null>(
+    const [currentWeather, setCurrentWeather] = useState<CurrentType | null>(
         null
     );
-    const [forecast, setForecast] = useState<ForecastType | null>(null);
+    const [forecast, setForecast] = useState<CurrentType | null>(null);
+    const [pollution, setPollution] = useState<pollutionType | null>(null);
     const [units, setUnits] = useState<string>("metric");
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,12 +48,13 @@ const App: React.FC = () => {
             return;
         } else {
             current(observedCity, units).then((data) => {
-                console.log("units in App.js:", units);
                 setCurrentWeather(data);
             });
             getForecast(observedCity, units).then((data) => {
-                console.log("units in App.js:", units);
                 setForecast(data);
+            });
+            currentPollution(observedCity).then((data) => {
+                setPollution(data);
             });
         }
     };
@@ -139,6 +146,7 @@ const App: React.FC = () => {
                     userInput,
                     currentWeather,
                     setCurrentWeather,
+                    pollution,
                 }}
             >
                 <Forecast observedCity={observedCity} />

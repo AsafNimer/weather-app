@@ -1,5 +1,5 @@
 import styles from "./Forecast.module.css";
-import { Today, Hourly, SwitchBtn } from "../components";
+import { Current, SwitchBtn } from "../components";
 import { addProps } from "types";
 
 function Forecast(props: addProps): JSX.Element {
@@ -7,13 +7,10 @@ function Forecast(props: addProps): JSX.Element {
         <div className={styles.forecast_component_container}>
             <h2 className={styles.observed_city_title}>
                 <>
-                    {" "}
-                    {props.observedCity?.name} {props.observedCity?.country}{" "}
-                    {props.observedCity?.state ? props.observedCity?.state : ""}
+                    {props.observedCity?.name} {props.observedCity?.country}
                 </>
             </h2>
-            <Today />
-            <Hourly />
+            <Current />
             <SwitchBtn />
         </div>
     );

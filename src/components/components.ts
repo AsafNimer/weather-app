@@ -1,8 +1,6 @@
-import { Today } from "./Today/Today";
-import { Hourly } from "./Hourly/Hourly";
+import { Current } from "./Current/Current";
 import { Forecast } from "./Forecast/Forecast";
 import { SwitchBtn } from "./SwitchBtn/SwitchBtn";
-export { Today };
-export { Hourly };
+export { Current };
 export { Forecast };
 export { SwitchBtn };
