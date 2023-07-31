@@ -1,5 +1,6 @@
 @media only screen and (max-width: 480px) and (orientation: portrait) {
-    .current_component_container {
+    .today_component_container {
+        border: 1px solid black;
         width: 20rem;
         display: flex;
         flex-direction: column;

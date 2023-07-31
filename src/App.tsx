@@ -129,6 +129,7 @@ const App: React.FC = () => {
                     units,
                     setUnits,
                     observedCity,
+                    userInput,
                 }}
             >
                 <Forecast observedCity={observedCity} />

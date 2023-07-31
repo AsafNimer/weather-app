@@ -1,39 +1,37 @@
 import styles from "./SwitchBtn.module.css";
-import { getForecast } from "services/Fetch";
+import { getForecast, searchCity } from "services/Fetch";
 import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 
 function SwitchBtn(): JSX.Element {
-    const { setForecast, forecast } = useContext(ForecastContext);
+    const { setForecast } = useContext(ForecastContext);
     const { observedCity } = useContext(ForecastContext);
     const { units, setUnits } = useContext(ForecastContext);
+    const { userInput } = useContext(ForecastContext);
 
     const checkbox = document.getElementById("switch") as HTMLInputElement;
-
     const handleSwitch = () => {
-        console.log("units in SwitchBtn.tsx:", units);
-        console.log("observedCity in SwitchBtn.tsx:", observedCity);
-        console.log("forecast in SwitchBtn.tsx: ");
-
-        if (!observedCity) {
+        if (!observedCity || !userInput) {
+            //should i leave the || !user input?
             console.log("returned");
             return;
         } else {
-            if (checkbox.checked) {
-                setUnits("metric");
-                console.log("units:", units);
-                getForecast(observedCity, units).then((data) => {
-                    setForecast(data);
-                    console.log("forecast is: ", forecast);
+            const apiCall = () => {
+                searchCity(observedCity.name).then(() => {
+                    getForecast(observedCity, units).then((data) => {
+                        setForecast(data);
+                    });
                 });
+            };
+            console.log("CHECKBOX.CHECKED: ", checkbox.checked);
 
+            if (!checkbox.checked) {
+                setUnits("imperial");
+                apiCall();
                 console.log("IT'S CHECKED . . .screen shows Celcius");
             } else {
-                setUnits("imperial");
-                console.log("units:", units);
-                getForecast(observedCity, units).then((data) => {
-                    setForecast(data);
-                });
+                setUnits("metric");
+                apiCall();
                 console.log("NOT CHECKED . . . screen shows Fahrenheit");
             }
         }

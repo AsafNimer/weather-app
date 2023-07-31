@@ -4,6 +4,7 @@ import { useContext } from "react";
 
 function Today(): JSX.Element {
     const { forecast } = useContext(ForecastContext);
+
     return (
         <div className={styles.today_component_container}>
             <>
