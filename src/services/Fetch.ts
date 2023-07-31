@@ -42,7 +42,7 @@ export const current = (value: FirstApiResultType, units: string) => {
 
 export const getForecast = (value: FirstApiResultType, units: string) => {
     const response = fetchData(
-        `http://${URL}/data/2.5/forecast?lat=${value.lat}&lon=${value.lon}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`,
+        `http://api.openweathermap.org/data/2.5/forecast?q=${value.name}&&units=${units}&appid=${process.env.REACT_APP_API_KEY}`,
         value,
         units
     );

@@ -1,5 +1,10 @@
 import { useState, useEffect, ChangeEvent } from "react";
-import { CurrentType, FirstApiResultType, pollutionType } from "types";
+import {
+    CurrentType,
+    FirstApiResultType,
+    PollutionType,
+    ForcastType,
+} from "types";
 import { Forecast } from "./components/components";
 import { ForecastContext } from "hooks/context/ForecastContext";
 import {
@@ -19,8 +24,8 @@ const App: React.FC = () => {
     const [currentWeather, setCurrentWeather] = useState<CurrentType | null>(
         null
     );
-    const [forecast, setForecast] = useState<CurrentType | null>(null);
-    const [pollution, setPollution] = useState<pollutionType | null>(null);
+    const [forecast, setForecast] = useState<ForcastType | null>(null);
+    const [pollution, setPollution] = useState<PollutionType | null>(null);
     const [units, setUnits] = useState<string>("metric");
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
