@@ -18,19 +18,26 @@ html {
 }
 
 body {
-    width: 100%;
-    /* height: 100vh; */
+    position: relative;
     /* background-color: #4a90e2; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#root {
+    position: relative;
+}
+
+.App_app_container__QwZ3J {
+    position: relative;
 }
 
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     .app_container {
         position: relative;
         top: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
     .search_container {
