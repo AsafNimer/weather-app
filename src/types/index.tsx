@@ -48,4 +48,6 @@ export type ForecastContextType = {
     setUnits: Dispatch<SetStateAction<string>>;
     observedCity: FirstApiResultType | null;
     userInput: string;
+    currentWeather: ForecastType;
+    setCurrentWeather: Dispatch<SetStateAction<ForecastType>>;
 };

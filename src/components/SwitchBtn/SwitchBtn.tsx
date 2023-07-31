@@ -1,5 +1,5 @@
 import styles from "./SwitchBtn.module.css";
-import { getForecast, searchCity } from "services/Fetch";
+import { current, getForecast, searchCity } from "services/Fetch";
 import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 
@@ -8,6 +8,7 @@ function SwitchBtn(): JSX.Element {
     const { observedCity } = useContext(ForecastContext);
     const { units, setUnits } = useContext(ForecastContext);
     const { userInput } = useContext(ForecastContext);
+    const { setCurrentWeather } = useContext(ForecastContext);
 
     const checkbox = document.getElementById("switch") as HTMLInputElement;
     const handleSwitch = () => {
@@ -18,6 +19,9 @@ function SwitchBtn(): JSX.Element {
         } else {
             const apiCall = () => {
                 searchCity(observedCity.name).then(() => {
+                    current(observedCity, units).then((data) => {
+                        setCurrentWeather(data);
+                    });
                     getForecast(observedCity, units).then((data) => {
                         setForecast(data);
                     });

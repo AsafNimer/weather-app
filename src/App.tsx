@@ -2,13 +2,16 @@ import { useState, useEffect, ChangeEvent } from "react";
 import { ForecastType, FirstApiResultType } from "types";
 import { Forecast } from "./components/components";
 import { ForecastContext } from "hooks/context/ForecastContext";
-import { getForecast, searchCity } from "services/Fetch";
+import { getForecast, searchCity, current } from "services/Fetch";
 import styles from "./App.module.css";
 
 const App: React.FC = () => {
     const [userInput, setUserInput] = useState<string>("");
     const [searchResults, setSearchResults] = useState<[]>([]);
     const [observedCity, setObservedCity] = useState<FirstApiResultType | null>(
+        null
+    );
+    const [currentWeather, setCurrentWeather] = useState<ForecastType | null>(
         null
     );
     const [forecast, setForecast] = useState<ForecastType | null>(null);
@@ -38,6 +41,10 @@ const App: React.FC = () => {
             console.log("return");
             return;
         } else {
+            current(observedCity, units).then((data) => {
+                console.log("units in App.js:", units);
+                setCurrentWeather(data);
+            });
             getForecast(observedCity, units).then((data) => {
                 console.log("units in App.js:", units);
                 setForecast(data);
@@ -130,6 +137,8 @@ const App: React.FC = () => {
                     setUnits,
                     observedCity,
                     userInput,
+                    currentWeather,
+                    setCurrentWeather,
                 }}
             >
                 <Forecast observedCity={observedCity} />
