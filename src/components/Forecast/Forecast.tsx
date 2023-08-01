@@ -5,11 +5,9 @@ import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 
 function Forecast(props: addProps): JSX.Element {
-    const { forecast } = useContext(ForecastContext);
     const { displayResults } = useContext(ForecastContext);
-    const { searchResults } = useContext(ForecastContext);
 
-    // console.log("FORECAST: ", forecast);
+    console.log("FORECAST: ", props.forecast);
 
     return (
         <div
@@ -21,10 +19,11 @@ function Forecast(props: addProps): JSX.Element {
         >
             <h2 className={styles.observed_city_title}>
                 <>
-                    {props.observedCity?.name} {props.observedCity?.country}
+                    {props.forecast?.city.name} {props.forecast?.city.country}
                 </>
             </h2>
-            <SwitchBtn /> <Current />
+            <SwitchBtn />
+            <Current />
             <Hourly />
             <Daily />
         </div>
@@ -32,8 +31,7 @@ function Forecast(props: addProps): JSX.Element {
 }
 
 //how to use Math.floor when it's NULL
-{
-    /* <p>{forecast !== null ? Math.floor(forecast.list[0].main.temp) : ""}</p>; */
-}
+
+/* <p>{forecast !== null ? Math.floor(forecast.list[0].main.temp) : ""}</p>; */
 
 export { Forecast };

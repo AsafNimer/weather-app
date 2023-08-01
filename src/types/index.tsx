@@ -10,7 +10,7 @@ export interface FirstApiResultType {
 }
 
 export type addProps = {
-    observedCity: FirstApiResultType | null;
+    forecast: ForcastType | null;
 };
 
 export type CurrentType = null | {
@@ -122,5 +122,4 @@ export type ForecastContextType = {
     setCurrentWeather: Dispatch<SetStateAction<CurrentType>>;
     pollution: PollutionType;
     displayResults: Boolean;
-    searchResults: [];
 };

@@ -156,10 +156,9 @@ const App: React.FC = () => {
                     setCurrentWeather,
                     pollution,
                     displayResults,
-                    searchResults,
                 }}
             >
-                <Forecast observedCity={observedCity} />
+                <Forecast forecast={forecast} />
             </ForecastContext.Provider>
         </div>
     );

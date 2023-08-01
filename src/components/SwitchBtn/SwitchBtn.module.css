@@ -1,6 +1,7 @@
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     .switch_container {
         position: relative;
+        z-index: 1;
         width: 3rem;
         height: 1.5rem;
         border-radius: 25px;
