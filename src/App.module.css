@@ -59,16 +59,16 @@ body {
     }
 
     .magnifying_glass_icon {
-        height: 1.5rem;
-        width: 1.5rem;
+        height: 1rem;
+        width: 1rem;
     }
 
     .x_icon {
         position: relative;
         z-index: 1;
         right: 1rem;
-        width: 1.2rem;
-        height: 1.2rem;
+        width: 1rem;
+        height: 1rem;
     }
 
     .search_btn {
@@ -92,6 +92,14 @@ body {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        /******************/
+        /* 
+        position: absolute;
+        z-index: 1;
+        top: 5rem;
+        right: 1rem;
+        border: 1px solid black; */
+        /******************/
         position: relative;
         top: 4rem;
         right: 0.5rem;

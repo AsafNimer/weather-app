@@ -15,11 +15,11 @@ function Current(): JSX.Element {
     const { currentWeather } = useContext(ForecastContext);
     const { pollution } = useContext(ForecastContext);
 
-    console.log("Current weather:", currentWeather);
-    console.log("Pollution:", pollution);
+    // console.log("Current weather:", currentWeather);
+    // console.log("Pollution:", pollution);
 
     return (
-        <div className={styles.today_component_container}>
+        <div className={styles.current_component_container}>
             <>
                 <h1>
                     {" "}
@@ -28,7 +28,7 @@ function Current(): JSX.Element {
                         : ""}
                 </h1>
                 <p>
-                    Air quallity:{" "}
+                    Air quallity:
                     {pollutionRateArray.filter(
                         (item) =>
                             pollutionRateArray.indexOf(item) ===

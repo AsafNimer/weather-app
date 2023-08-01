@@ -1,16 +1,32 @@
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     .forecast_component_container {
+        /**************/
+        /* position: absolute;
+        z-index: -2;
+        top: 5rem;
+        left: -1rem; */
+        /***************/
         border: rgba(0, 0, 0, 0.3) solid 1px;
         width: 90vw;
-        height: 85vh;
+        height: 100vh;
         display: flex;
         flex-direction: column;
+        gap: 2rem;
         align-items: center;
+        padding-bottom: 5rem;
     }
+
+    /* .hide_results {
+        display: none;
+    } */
 
     .observed_city_title {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
         font-size: 1.5rem;
+    }
+
+    .hide_component {
+        display: none;
     }
 }
 
