@@ -6,8 +6,21 @@ import { useContext } from "react";
 
 function Forecast(props: addProps): JSX.Element {
     const { displayResults } = useContext(ForecastContext);
+    const { observedCity } = useContext(ForecastContext);
 
     console.log("FORECAST: ", props.forecast);
+
+    const forecastCityNameValues = () => {
+        if (props.forecast === null) {
+            return "";
+        } else if (props.forecast?.city.name === undefined) {
+            return observedCity?.name + " " + observedCity?.country;
+        } else {
+            return (
+                props.forecast?.city.name + " " + props.forecast?.city.country
+            );
+        }
+    };
 
     return (
         <div
@@ -18,9 +31,7 @@ function Forecast(props: addProps): JSX.Element {
             }
         >
             <h2 className={styles.observed_city_title}>
-                <>
-                    {props.forecast?.city.name} {props.forecast?.city.country}
-                </>
+                {forecastCityNameValues()}
             </h2>
             <SwitchBtn />
             <Current />

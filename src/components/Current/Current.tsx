@@ -28,12 +28,11 @@ function Current(): JSX.Element {
                         : ""}
                 </h1>
                 <p>
-                    Air quallity:
-                    {pollutionRateArray.filter(
+                    {`Air quallity: ${pollutionRateArray.filter(
                         (item) =>
                             pollutionRateArray.indexOf(item) ===
                             pollution?.list[0].main.aqi
-                    )}
+                    )}`}
                 </p>
             </>
         </div>

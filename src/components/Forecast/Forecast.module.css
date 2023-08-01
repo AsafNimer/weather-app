@@ -6,7 +6,8 @@
         top: 5rem;
         left: -1rem;
         /***************/
-        border: rgba(0, 0, 0, 0.3) solid 1px;
+        /* border: rgba(0, 0, 0, 0.3) solid 1px; */
+        /* background: linear-gradient(white, #4a90e2); */
         width: 90vw;
         height: 100vh;
         display: flex;
@@ -15,10 +16,6 @@
         align-items: center;
         padding-bottom: 5rem;
     }
-
-    /* .hide_results {
-        display: none;
-    } */
 
     .observed_city_title {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
