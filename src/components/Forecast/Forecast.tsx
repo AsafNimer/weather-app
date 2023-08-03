@@ -1,5 +1,5 @@
 import styles from "./Forecast.module.css";
-import { Current, SwitchBtn, Daily, Hourly } from "../components";
+import { Current, Daily, Hourly } from "../components";
 import { addProps } from "types";
 import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
@@ -11,7 +11,7 @@ function Forecast(props: addProps): JSX.Element {
     console.log("FORECAST: ", props.forecast);
 
     const forecastCityNameValues = () => {
-        if (props.forecast === null) {
+        if (props.forecast === null || !observedCity) {
             return "";
         } else if (props.forecast?.city.name === undefined) {
             return observedCity?.name + " " + observedCity?.country;
@@ -33,7 +33,7 @@ function Forecast(props: addProps): JSX.Element {
             <h2 className={styles.observed_city_title}>
                 {forecastCityNameValues()}
             </h2>
-            <SwitchBtn />
+
             <Current />
             <Hourly />
             <Daily />

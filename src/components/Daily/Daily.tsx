@@ -6,11 +6,7 @@ function Daily(): JSX.Element {
     const { forecast } = useContext(ForecastContext);
     // console.log("FORECAST: ", forecast);
 
-    return (
-        <div className={styles.daily_component_container}>
-            <p>daily</p>
-        </div>
-    );
+    return <div className={styles.daily_component_container}></div>;
 }
 
 export { Daily };

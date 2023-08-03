@@ -34,10 +34,14 @@ body {
     position: relative;
 }
 
-@media only screen and (max-width: 480px) and (orientation: portrait) {
+@media only screen and (max-width: 400px) and (orientation: portrait) {
     .app_container {
         position: relative;
         top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .search_container {
@@ -53,12 +57,15 @@ body {
     .input_container {
         position: relative;
         top: 2.5rem;
+        right: 0.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 0.2rem;
     }
 
     .magnifying_glass_icon {
+        margin-right: 0.25rem;
         height: 1rem;
         width: 1rem;
     }
@@ -66,7 +73,6 @@ body {
     .x_icon {
         position: relative;
         z-index: 1;
-        right: 1rem;
         width: 1rem;
         height: 1rem;
     }
@@ -80,9 +86,9 @@ body {
     }
 
     .user_input {
-        padding-left: 0.2rem;
+        padding-left: 0.4rem;
         height: 1.6rem;
-        width: 15rem;
+        width: 13rem;
         border: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.4);
         outline: none;
@@ -96,13 +102,12 @@ body {
         position: absolute;
         z-index: 2;
         top: 6rem;
-        right: 1rem;
         /******************/
         /* position: relative;
         top: 4rem; */
-        right: 0.5rem;
+        right: 3.5rem;
         margin-bottom: 2rem;
-        width: 17rem;
+        width: 15rem;
     }
 
     .city_item {
@@ -123,7 +128,8 @@ body {
         width: 1.3rem;
     }
 }
-
+@media only screen and (min-width: 400px) and (max-width: 480px) {
+}
 @media only screen and (min-width: 481px) and (max-width: 768px) {
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px) {

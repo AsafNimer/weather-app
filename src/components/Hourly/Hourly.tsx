@@ -6,11 +6,7 @@ function Hourly(): JSX.Element {
     const { forecast } = useContext(ForecastContext);
     // console.log("FORECAST: ", forecast);
 
-    return (
-        <div className={styles.hourly_component_container}>
-            <p>Hourly</p>
-        </div>
-    );
+    return <div className={styles.hourly_component_container}></div>;
 }
 
 export { Hourly };

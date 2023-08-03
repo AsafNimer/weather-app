@@ -1,10 +1,11 @@
-@media only screen and (max-width: 480px) and (orientation: portrait) {
+@media only screen and (max-width: 400px) and (orientation: portrait) {
     .daily_component_container {
         position: relative;
-        border: 1px solid green;
+        /* border: 1px solid green; */
     }
 }
-
+@media only screen and (min-width: 400px) and (max-width: 480px) {
+}
 @media only screen and (min-width: 481px) and (max-width: 768px) {
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
