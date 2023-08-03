@@ -4,6 +4,7 @@ ul {
 
 :root {
     --font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS";
+    --background-input: rgb(245, 241, 235);
 }
 
 * {
@@ -47,7 +48,7 @@ body {
     .search_container {
         position: relative;
         bottom: 1.4rem;
-        left: 0.6rem;
+        /* left: 0.6rem; */
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -64,33 +65,68 @@ body {
         gap: 0.2rem;
     }
 
-    .magnifying_glass_icon {
-        margin-right: 0.25rem;
-        height: 1rem;
-        width: 1rem;
+    .x_icon_container {
+        position: relative;
+        /* border: 1px solid black; */
+        z-index: 0;
+        right: 1.7rem;
+        background-color: var(--background-input);
+        padding: 0.5rem;
+        width: 4rem;
+        height: 2.5rem;
+        border-radius: 25px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
     }
 
-    .x_icon {
+    .x_icon_container .x_icon {
+        background-color: var(--background-input);
         position: relative;
-        z-index: 1;
+        z-index: 2;
         width: 1rem;
         height: 1rem;
     }
 
-    .search_btn {
+    .search_btn_container {
         position: relative;
-        top: 0.2rem;
-        height: 2rem;
+        z-index: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 25px;
+        left: 3rem;
+        width: 3.5rem;
+        height: 2.5rem;
+        position: relative;
+        background-color: var(--background-input);
+    }
+
+    .search_btn_container .search_btn {
+        background-color: var(--background-input);
+        position: relative;
+        left: 0.5rem;
+        top: 0.1rem;
         border: none;
-        background-color: white;
+    }
+
+    .search_btn .magnifying_glass_icon {
+        background-color: var(--background-input);
+        /* margin-right: 0.25rem; */
+        height: 1rem;
+        width: 1rem;
     }
 
     .user_input {
+        position: relative;
+        z-index: 1;
+        left: 0.8rem;
         padding-left: 1rem;
+        padding-right: 0.5rem;
         height: 2.5rem;
         width: 16rem;
         border-radius: 25px;
-        background-color: rgb(241, 233, 222);
+        background-color: var(--background-input);
         border: none;
         outline: none;
     }
@@ -106,14 +142,15 @@ body {
         /******************/
         /* position: relative;
         top: 4rem; */
-        right: 3.5rem;
+        right: 3rem;
         margin-bottom: 2rem;
-        width: 15rem;
+        width: 17rem;
     }
 
     .city_item {
         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
         padding-bottom: 1rem;
+        padding-left: 1rem;
     }
 
     .city_btn {

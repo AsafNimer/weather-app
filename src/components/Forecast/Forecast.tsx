@@ -41,8 +41,4 @@ function Forecast(props: addProps): JSX.Element {
     );
 }
 
-//how to use Math.floor when it's NULL
-
-/* <p>{forecast !== null ? Math.floor(forecast.list[0].main.temp) : ""}</p>; */
-
 export { Forecast };
