@@ -12,7 +12,7 @@ import {
     CurrentType,
     FirstApiResultType,
     PollutionType,
-    ForcastType,
+    ForecastType,
 } from "types";
 
 const App: React.FC = () => {
@@ -20,7 +20,7 @@ const App: React.FC = () => {
     const [userInput, setUserInput] = useState<string>("");
     const [isMobile, setIsMobile] = useState<Boolean>(false);
     const [searchResults, setSearchResults] = useState<[]>([]);
-    const [forecast, setForecast] = useState<ForcastType | null>(null);
+    const [forecast, setForecast] = useState<ForecastType | null>(null);
     const [pollution, setPollution] = useState<PollutionType | null>(null);
     const [displayResults, setDisplayResults] = useState<Boolean>(false);
     const [observedCity, setObservedCity] = useState<FirstApiResultType | null>(

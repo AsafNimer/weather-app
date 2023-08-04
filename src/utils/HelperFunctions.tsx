@@ -85,6 +85,14 @@ export const getSunset = (sunset: number | undefined) => {
     }
 };
 
+export const getDayTime = (dt: number | undefined) => {
+    if (dt !== undefined) {
+        return timeConverter(dt);
+    } else {
+        return "";
+    }
+};
+
 export const getSunsetSVG = (sunsetIcon: string) => {
     return (
         <>

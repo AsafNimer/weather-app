@@ -1,5 +1,8 @@
 :root {
-    --background: rgb(199, 246, 230);
+    --background: rgb(213, 248, 236);
+    --sub-background: rgb(246, 225, 197);
+
+    /* --sub-background: rgb(246, 220, 185); */
     --font: Arial, Helvetica, sans-serif;
 }
 @media only screen and (max-width: 400px) and (orientation: portrait) {
@@ -106,7 +109,7 @@
     }
 
     .fls_like_hum_wnd_poll_icon_container .img_div .weather_icon_img {
-        background-color: rgb(246, 220, 185);
+        background-color: var(--sub-background);
         width: 5rem;
         height: 5rem;
         border-radius: 25px;

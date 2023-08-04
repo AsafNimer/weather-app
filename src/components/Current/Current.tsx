@@ -22,8 +22,6 @@ import {
     getSunrise,
     getSunset,
 } from "utils/HelperFunctions";
-// const { DateTime } = require("luxon");
-// import { DateTime } from "luxon/build/node/luxon";
 
 const pollutionRateArray: string[] = [
     "indexzero",

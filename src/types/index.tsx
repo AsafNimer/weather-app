@@ -10,7 +10,7 @@ export interface FirstApiResultType {
 }
 
 export type addProps = {
-    forecast: ForcastType | null;
+    forecast: ForecastType | null;
 };
 
 export type CurrentType = null | {
@@ -41,7 +41,7 @@ export type CurrentType = null | {
     };
 };
 
-export type ForcastType = null | {
+export type ForecastType = null | {
     city: {
         coord: {
             lat: number;
@@ -112,8 +112,8 @@ export type PollutionType = null | {
 };
 
 export type ForecastContextType = {
-    forecast: ForcastType;
-    setForecast: Dispatch<SetStateAction<ForcastType>>;
+    forecast: ForecastType;
+    setForecast: Dispatch<SetStateAction<ForecastType>>;
     units: string;
     setUnits: Dispatch<SetStateAction<string>>;
     observedCity: FirstApiResultType | null;
