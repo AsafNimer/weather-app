@@ -14,7 +14,7 @@ function Forecast(props: addProps): JSX.Element {
         if (props.forecast === null || !observedCity) {
             return "";
         } else if (props.forecast?.city.name === undefined) {
-            return observedCity?.name + " " + observedCity?.country;
+            return "";
         } else {
             return (
                 props.forecast?.city.name + " " + props.forecast?.city.country

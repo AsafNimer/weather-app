@@ -1,6 +1,22 @@
+function timeConverter(unixTimeStamp: number) {
+    const date = new Date(unixTimeStamp * 1000);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const formatTime = `${hours}:${minutes}`;
+    return formatTime;
+}
+
 export const getTemp = (temp: number | undefined) => {
     if (temp !== undefined) {
         return `${Math.floor(temp) + "°"}`;
+    } else {
+        return "";
+    }
+};
+
+export const getWeatherIcon = (url: string | undefined) => {
+    if (url !== undefined) {
+        return `https://openweathermap.org/img/wn/${url}@2x.png`;
     } else {
         return "";
     }
@@ -55,7 +71,7 @@ export const getTempMax = (tempMax: number | undefined) => {
 
 export const getSunrise = (sunrise: number | undefined) => {
     if (sunrise !== undefined) {
-        return sunrise;
+        return timeConverter(sunrise);
     } else {
         return "";
     }
@@ -63,7 +79,7 @@ export const getSunrise = (sunrise: number | undefined) => {
 
 export const getSunset = (sunset: number | undefined) => {
     if (sunset !== undefined) {
-        return sunset;
+        return timeConverter(sunset);
     } else {
         return "";
     }

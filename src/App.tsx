@@ -16,11 +16,12 @@ import {
 } from "types";
 
 const App: React.FC = () => {
+    const [units, setUnits] = useState<string>("metric");
     const [userInput, setUserInput] = useState<string>("");
+    const [isMobile, setIsMobile] = useState<Boolean>(false);
     const [searchResults, setSearchResults] = useState<[]>([]);
     const [forecast, setForecast] = useState<ForcastType | null>(null);
     const [pollution, setPollution] = useState<PollutionType | null>(null);
-    const [units, setUnits] = useState<string>("metric");
     const [displayResults, setDisplayResults] = useState<Boolean>(false);
     const [observedCity, setObservedCity] = useState<FirstApiResultType | null>(
         null
@@ -28,6 +29,8 @@ const App: React.FC = () => {
     const [currentWeather, setCurrentWeather] = useState<CurrentType | null>(
         null
     );
+
+    console.log("window.innerWidth: ", window.innerWidth);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;

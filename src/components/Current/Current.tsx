@@ -11,6 +11,7 @@ import {
     getTempMaxSVG,
     getSunsetSVG,
     getSunriseSVG,
+    getWeatherIcon,
     getHumidity,
     getDescription,
     getFeelsLike,
@@ -79,7 +80,9 @@ function Current(): JSX.Element {
                         <div className={styles.img_div}>
                             <img
                                 className={styles.weather_icon_img}
-                                src={`https://openweathermap.org/img/wn/${currentWeather?.weather[0].icon}@2x.png`}
+                                src={getWeatherIcon(
+                                    currentWeather?.weather[0].icon
+                                )}
                                 alt={currentWeather?.weather[0].description}
                             />
                         </div>
