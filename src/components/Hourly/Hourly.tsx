@@ -9,6 +9,9 @@ function Hourly(): JSX.Element {
     return (
         <>
             <div className={styles.hourly_component_container}>
+                <p className={styles.hourly_title}>
+                    {forecast !== null ? "Hourly" : ""}
+                </p>
                 <div className={styles.hour_cards_container}>
                     {forecast !== null
                         ? forecast.list

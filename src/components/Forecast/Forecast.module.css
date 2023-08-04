@@ -5,12 +5,9 @@
         gap: 0.5rem;
         width: 90vw;
         height: 100vh;
-        /**************/
         position: absolute;
         z-index: -2;
-        top: 5rem;
-        /***************/
-        /* background: linear-gradient(white, #4a90e2); */
+        top: 4rem;
         align-items: center;
         padding-bottom: 5rem;
     }

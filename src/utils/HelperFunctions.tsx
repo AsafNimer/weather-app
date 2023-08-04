@@ -6,6 +6,22 @@ function timeConverter(unixTimeStamp: number) {
     return formatTime;
 }
 
+export const getWeekDay = () => {
+    const weekDays: string[] = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+    ];
+
+    const date = new Date();
+    const day: string = weekDays[date.getDay()];
+    return day;
+};
+
 export const getTemp = (temp: number | undefined) => {
     if (temp !== undefined) {
         return `${Math.floor(temp) + "°"}`;
@@ -47,7 +63,7 @@ export const getHumidity = (humidity: number | undefined) => {
 };
 export const getWind = (wind: number | undefined) => {
     if (wind !== undefined) {
-        return `Wind: ${Math.ceil(wind)} m/s`;
+        return `Wind: ${Math.ceil(wind * 1.9438452)} Kn`;
     } else {
         return "";
     }

@@ -1,20 +1,12 @@
-:root {
-    --background: rgb(213, 248, 236);
-    --sub-background: rgb(246, 225, 197);
-
-    /* --sub-background: rgb(246, 220, 185); */
-    --font: Arial, Helvetica, sans-serif;
-}
 @media only screen and (max-width: 400px) and (orientation: portrait) {
     .current_component_container {
-        /* border: 1px solid black; */
         width: 100%;
         position: relative;
         display: flex;
         flex-direction: column;
         /* align-items: center; */
         /* justify-content: center; */
-        gap: 2.5rem;
+        gap: 1.5rem;
         padding-bottom: 1rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
         background-color: var(--background);
@@ -31,7 +23,6 @@
         align-items: center;
         background-color: var(--background);
         margin-top: 0.5rem;
-        /* border: 1px solid black; */
     }
 
     .current_component_container
@@ -53,7 +44,6 @@
     }
 
     .component_bottom_container {
-        /* border: 1px solid blue; */
         width: 100%;
         display: flex;
         gap: 2rem;
@@ -65,13 +55,11 @@
         background-color: var(--background);
         padding-left: 0.45rem;
         padding-right: 0.45rem;
-        /* border: 1px solid green; */
         display: flex;
         justify-content: space-evenly;
     }
 
     .component_bottom_container .minmax_sunrise_sunset_container {
-        /* border: 1px solid red; */
         background-color: var(--background);
         display: flex;
         gap: 0.5rem;
@@ -98,7 +86,6 @@
     }
 
     .component_bottom_container .fls_like_hum_wnd_poll_icon_container {
-        /* border: 1px solid red; */
         display: flex;
         justify-content: space-evenly;
         background-color: var(--background);
