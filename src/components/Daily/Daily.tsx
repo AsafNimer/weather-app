@@ -5,7 +5,6 @@ import { getWeatherIcon, getComingDaysNames } from "utils/HelperFunctions";
 
 function Daily(): JSX.Element {
     const { forecast } = useContext(ForecastContext);
-
     return (
         <>
             <div className={styles.daily_component_container}>
@@ -19,10 +18,13 @@ function Daily(): JSX.Element {
                                   (item) =>
                                       forecast?.list.indexOf(item) % 8 === 0
                               )
-                              .map((item) => {
+                              .map((item, index) => {
                                   return (
                                       <>
-                                          <div className={styles.day_card}>
+                                          <div
+                                              key={item.dt_txt.slice(8, 10)}
+                                              className={styles.day_card}
+                                          >
                                               <p className={styles.week_day}>
                                                   {getComingDaysNames(item.dt)}
                                               </p>

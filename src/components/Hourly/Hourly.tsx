@@ -5,7 +5,6 @@ import { getWeatherIcon, getTemp } from "utils/HelperFunctions";
 
 function Hourly(): JSX.Element {
     const { forecast } = useContext(ForecastContext);
-
     return (
         <>
             <div className={styles.hourly_component_container}>
@@ -21,7 +20,10 @@ function Hourly(): JSX.Element {
                               .map((item) => {
                                   return (
                                       <>
-                                          <div className={styles.hour_card}>
+                                          <div
+                                              key={item.dt_txt.slice(11, 13)}
+                                              className={styles.hour_card}
+                                          >
                                               <p className={styles.hour_par}>
                                                   {forecast.list.indexOf(
                                                       item
