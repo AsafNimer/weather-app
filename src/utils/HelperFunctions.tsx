@@ -1,3 +1,5 @@
+const weekDays: string[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 function timeConverter(unixTimeStamp: number) {
     const date = new Date(unixTimeStamp * 1000);
     const hours = date.getHours();
@@ -6,20 +8,20 @@ function timeConverter(unixTimeStamp: number) {
     return formatTime;
 }
 
-export const getWeekDay = () => {
-    const weekDays: string[] = [
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-    ];
-
+export const getCurrentWeekDay = () => {
     const date = new Date();
     const day: string = weekDays[date.getDay()];
     return day;
+};
+
+export const getComingDaysNames = (dt: number | undefined) => {
+    if (!dt) {
+        return;
+    } else {
+        const date = new Date(dt * 1000);
+        const day = weekDays[date.getDay()];
+        return day;
+    }
 };
 
 export const getTemp = (temp: number | undefined) => {

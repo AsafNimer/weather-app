@@ -1,7 +1,7 @@
 import styles from "./Daily.module.css";
 import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
-import { getWeatherIcon, getWeekDay } from "utils/HelperFunctions";
+import { getWeatherIcon, getComingDaysNames } from "utils/HelperFunctions";
 
 function Daily(): JSX.Element {
     const { forecast } = useContext(ForecastContext);
@@ -16,22 +16,23 @@ function Daily(): JSX.Element {
                     {forecast !== null
                         ? forecast.list
                               .filter(
-                                  (item) => forecast?.list.indexOf(item) <= 4
+                                  (item) =>
+                                      forecast?.list.indexOf(item) % 8 === 0
                               )
                               .map((item) => {
                                   return (
                                       <>
                                           <div className={styles.day_card}>
                                               <p className={styles.week_day}>
-                                                  {getWeekDay()}
+                                                  {getComingDaysNames(item.dt)}
                                               </p>
                                               <img
                                                   className={
                                                       styles.weekDay_icon
                                                   }
-                                                  src={`${getWeatherIcon(
+                                                  src={getWeatherIcon(
                                                       item.weather[0].icon
-                                                  )}`}
+                                                  )}
                                                   alt="weather"
                                               />
                                               <div
