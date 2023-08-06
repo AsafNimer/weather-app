@@ -50,18 +50,7 @@ function Current(): JSX.Element {
 
     return (
         <div>
-            {/* <p className={styles.no_results}>
-                {" "}
-                {observedCity === null ? "No results found" : ""}
-            </p> */}
-
-            <div
-                className={
-                    observedCity === null
-                        ? styles.hide_component_container
-                        : styles.current_component_container
-                }
-            >
+            <div className={styles.current_component_container}>
                 <div className={styles.component_upper_container}>
                     <div className={styles.switch_btn_container}>
                         <SwitchBtn />

@@ -12,16 +12,13 @@
         box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
-    .hide_component_container {
-        display: none;
-    }
-
     .current_component_container .component_upper_container {
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: var(--background);
         margin-top: 0.5rem;
+        border-radius: 15px;
     }
 
     .current_component_container
@@ -98,7 +95,7 @@
         background-color: var(--sub-background);
         width: 5rem;
         height: 5rem;
-        border-radius: 25px;
+        border-radius: 15px;
     }
 
     .data_wrapper {
@@ -168,11 +165,6 @@
 
     .vertical_line_par {
         background-color: var(--background);
-    }
-
-    .no_results {
-        position: absolute;
-        font-family: var(--font);
     }
 }
 
