@@ -15,7 +15,7 @@ function SwitchBtn(): JSX.Element {
 
     const handleSwitch = () => {
         if (!observedCity || !userInput) {
-            console.log("returned");
+            // console.log("returned");
             return;
         } else {
             const apiCall = (units: string) => {
@@ -32,11 +32,11 @@ function SwitchBtn(): JSX.Element {
             if (units === "metric") {
                 setUnits("imperial");
                 apiCall(units);
-                console.log("screen shows Celcius");
+                // console.log("screen shows Celcius");
             } else {
                 setUnits("metric");
                 apiCall(units);
-                console.log("screen shows Fahrenheit");
+                // console.log("screen shows Fahrenheit");
             }
         }
     };

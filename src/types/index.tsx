@@ -119,5 +119,5 @@ export type ForecastContextType = {
     currentWeather: CurrentType;
     setCurrentWeather: Dispatch<SetStateAction<CurrentType>>;
     pollution: PollutionType;
-    displayResults: boolean;
+    display: boolean;
 };

@@ -5,8 +5,8 @@ import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 
 function Forecast(props: addProps): JSX.Element {
-    const { displayResults } = useContext(ForecastContext);
     const { observedCity } = useContext(ForecastContext);
+    const { display } = useContext(ForecastContext);
 
     console.log("FORECAST: ", props.forecast);
 
@@ -25,7 +25,7 @@ function Forecast(props: addProps): JSX.Element {
     return (
         <div
             className={
-                displayResults
+                display
                     ? styles.forecast_component_container
                     : styles.hide_component
             }

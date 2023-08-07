@@ -18,11 +18,12 @@ import {
 const App: React.FC = () => {
     const [units, setUnits] = useState<string>("metric");
     const [userInput, setUserInput] = useState<string>("");
-    const [isMobile, setIsMobile] = useState<boolean>(false);
+    // const [isMobile, setIsMobile] = useState<boolean>(false);
     const [searchResults, setSearchResults] = useState<[]>([]);
     const [forecast, setForecast] = useState<ForecastType | null>(null);
     const [pollution, setPollution] = useState<PollutionType | null>(null);
-    const [displayResults, setDisplayResults] = useState<boolean>(false);
+    const [display, setDisplay] = useState<boolean>(true);
+    const [noResults, setNoResults] = useState<boolean>(false);
     const [observedCity, setObservedCity] = useState<FirstApiResultType | null>(
         null
     );
@@ -30,15 +31,15 @@ const App: React.FC = () => {
         null
     );
 
-    console.log("observed city: ", observedCity);
-    console.log("window.innerWidth: ", window.innerWidth);
+    // console.log("window.innerWidth: ", window.innerWidth);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setUserInput(value);
+
         if (value === "") {
             setSearchResults([]);
-            setDisplayResults(false);
+            setDisplay(true);
         } else {
             searchCity(value).then((data) => {
                 setSearchResults(data);
@@ -48,22 +49,19 @@ const App: React.FC = () => {
 
     const handleCitySelect = (city: FirstApiResultType) => {
         setObservedCity(city);
-        // setCurrentWeather(null);
-        // setForecast(null);
-        // setPollution(null);
-        // console.log(currentWeather, forecast, pollution);
     };
 
     const handleCitySubmit = () => {
-        setSearchResults([]);
-        setDisplayResults(true);
-
         if (!observedCity || !userInput) {
             console.log("return");
-            setDisplayResults(false);
+            setDisplay(false);
+            setNoResults(true);
             setSearchResults([]);
             return;
         } else {
+            setDisplay(true);
+            setNoResults(false);
+
             current(observedCity, units).then((data) => {
                 setCurrentWeather(data);
             });
@@ -77,8 +75,8 @@ const App: React.FC = () => {
     };
 
     const handleClearTxt = () => {
-        setDisplayResults(false);
         setUserInput("");
+        setNoResults(false);
         setSearchResults([]);
         setObservedCity(null);
     };
@@ -90,20 +88,19 @@ const App: React.FC = () => {
                     observedCity.state ? observedCity.state : ""
                 }`
             );
-            // setCurrentWeather(null);
-            // setForecast(null);
-            // setPollution(null);
             setSearchResults([]);
+        } else {
+            setDisplay(false);
         }
-    }, [observedCity, units]);
+    }, [observedCity]);
 
     return (
         <div className={styles.app_container}>
-            {/* <p className={styles.no_results_par}>
-                {displayResults ? "No Results" : ""}
-            </p> */}
-            <h4 className={styles.app_title}>getWeather.</h4>
             <div className={styles.search_container}>
+                <p className={styles.no_results_par}>
+                    {noResults ? "No Results" : ""}
+                </p>
+                <h4 className={styles.app_title}>getWeather.</h4>
                 <div className={styles.input_container}>
                     <div className={styles.search_btn_container}>
                         <button
@@ -176,7 +173,7 @@ const App: React.FC = () => {
                     currentWeather,
                     setCurrentWeather,
                     pollution,
-                    displayResults,
+                    display,
                 }}
             >
                 <Forecast forecast={forecast} />
