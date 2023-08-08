@@ -13,6 +13,10 @@
     background-color: rgb(247, 238, 229);
 }
 
+* div {
+    width: 100%;
+}
+
 html {
     font-size: 15px;
 }
@@ -33,141 +37,157 @@ ul {
     position: relative;
 }
 
+.app_container {
+    position: relative;
+    top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.no_results_par {
+    font-family: var(--font);
+    position: absolute;
+    top: 15rem;
+}
+
+.app_title {
+    position: absolute;
+    z-index: -2;
+    top: 10rem;
+    font-size: 2rem;
+    font-family: var(--font);
+}
+
+.search_container {
+    position: relative;
+    bottom: 1.4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input_container {
+    position: relative;
+    top: 2.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.x_icon_container {
+    position: relative;
+    z-index: 0;
+    right: 2.2rem;
+    background-color: var(--background-input);
+    padding: 0.5rem;
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.x_icon_container .x_icon {
+    background-color: var(--background-input);
+    position: relative;
+    z-index: 2;
+    width: 1rem;
+    height: 1rem;
+}
+
+.search_btn_container {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 25px;
+    left: 2rem;
+    width: 5rem;
+    height: 2.5rem;
+    position: relative;
+    background-color: var(--background-input);
+}
+
+.search_btn_container .search_btn {
+    background-color: var(--background-input);
+    position: relative;
+    left: 0.4rem;
+    top: 0.1rem;
+    border: none;
+}
+
+.search_btn .magnifying_glass_icon {
+    position: relative;
+    background-color: var(--background-input);
+    height: 1.1rem;
+    width: 1.1rem;
+}
+
+.user_input {
+    position: relative;
+    z-index: 1;
+    right: 0.1rem;
+    border-radius: 25px;
+    background-color: var(--background-input);
+    border: none;
+    outline: none;
+}
+
+.cities_list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
+.city_item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0rem 0.5rem 1rem 1rem;
+    text-align-last: left;
+}
+
+.city_btn {
+    border: none;
+    font-family: var(--font-family);
+    display: flex;
+    gap: 1rem;
+}
+
+.location_icon {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
 @media only screen and (max-width: 480px) and (orientation: portrait) {
-    * div {
-        width: 100%;
-    }
-
-    .app_container {
-        position: relative;
-        top: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .no_results_par {
-        font-family: var(--font);
-        position: absolute;
-        top: 15rem;
-    }
-
-    .app_title {
-        position: absolute;
-        z-index: -2;
-        top: 10rem;
-        font-size: 2rem;
-        font-family: var(--font);
-    }
-
-    .search_container {
-        position: relative;
-        bottom: 1.4rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .input_container {
-        position: relative;
-        top: 2.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-    }
-
-    .x_icon_container {
-        position: relative;
-        z-index: 0;
-        right: 2.2rem;
-        background-color: var(--background-input);
-        padding: 0.5rem;
-        width: 5rem;
-        height: 2.5rem;
-        border-radius: 25px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .x_icon_container .x_icon {
-        background-color: var(--background-input);
-        position: relative;
-        z-index: 2;
-        width: 1rem;
-        height: 1rem;
-    }
-
-    .search_btn_container {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        border-radius: 25px;
-        left: 2rem;
-        width: 5rem;
-        height: 2.5rem;
-        position: relative;
-        background-color: var(--background-input);
-    }
-
-    .search_btn_container .search_btn {
-        background-color: var(--background-input);
-        position: relative;
-        left: 0.4rem;
-        top: 0.1rem;
-        border: none;
-    }
-
     .search_btn .magnifying_glass_icon {
-        background-color: var(--background-input);
         height: 1rem;
         width: 1rem;
     }
 
     .user_input {
-        position: relative;
-        z-index: 1;
-        right: 0.1rem;
         padding-left: 1rem;
         padding-right: 1rem;
         height: 2.5rem;
         width: 90%;
-        border-radius: 25px;
-        background-color: var(--background-input);
-        border: none;
-        outline: none;
     }
 
     .cities_list {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        position: absolute;
-        z-index: 2;
         top: 5.6rem;
-        margin-bottom: 2rem;
         width: 90%;
     }
 
-    .city_item {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding-bottom: 1rem;
-        padding-left: 1rem;
-    }
-
     .city_btn {
-        border: none;
         font-size: 1rem;
-        font-family: var(--font-family);
-        display: flex;
-        gap: 1rem;
     }
 
     .location_icon {
@@ -177,67 +197,6 @@ ul {
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-    * div {
-        width: 100%;
-    }
-
-    .app_container {
-        position: relative;
-        top: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .no_results_par {
-        font-family: var(--font);
-        position: absolute;
-        top: 15rem;
-    }
-
-    .app_title {
-        position: absolute;
-        z-index: -2;
-        top: 10rem;
-        font-size: 2rem;
-        font-family: var(--font);
-    }
-
-    .search_container {
-        position: relative;
-        bottom: 1.4rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .input_container {
-        position: relative;
-        top: 2.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-    }
-
-    .x_icon_container {
-        position: relative;
-        z-index: 0;
-        right: 2.2rem;
-        background-color: var(--background-input);
-        padding: 0.5rem;
-        width: 5rem;
-        height: 2.5rem;
-        border-radius: 25px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
     .x_icon_container .x_icon {
         background-color: var(--background-input);
         position: relative;
@@ -246,70 +205,18 @@ ul {
         height: 1rem;
     }
 
-    .search_btn_container {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        border-radius: 25px;
-        left: 2rem;
-        width: 5rem;
-        height: 2.5rem;
-        position: relative;
-        background-color: var(--background-input);
-    }
-
-    .search_btn_container .search_btn {
-        background-color: var(--background-input);
-        position: relative;
-        left: 0.4rem;
-        top: 0.1rem;
-        border: none;
-    }
-
-    .search_btn .magnifying_glass_icon {
-        background-color: var(--background-input);
-        height: 1.1rem;
-        width: 1.1rem;
-    }
-
     .user_input {
-        position: relative;
-        z-index: 1;
-        right: 0.1rem;
         padding-right: 1rem;
         height: 2.5rem;
         width: 90%;
-        border-radius: 25px;
-        background-color: var(--background-input);
-        border: none;
-        outline: none;
     }
 
     .cities_list {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        position: absolute;
-        z-index: 2;
         top: 6rem;
-        margin-bottom: 2rem;
-        width: 90%;
-    }
-
-    .city_item {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding-bottom: 1rem;
-        padding-left: 1rem;
     }
 
     .city_btn {
-        border: none;
         font-size: 1rem;
-        font-family: var(--font-family);
-        display: flex;
-        gap: 1rem;
     }
 
     .location_icon {
@@ -319,67 +226,6 @@ ul {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-    * div {
-        width: 100%;
-    }
-
-    .app_container {
-        position: relative;
-        top: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .no_results_par {
-        font-family: var(--font);
-        position: absolute;
-        top: 15rem;
-    }
-
-    .app_title {
-        position: absolute;
-        z-index: -2;
-        top: 10rem;
-        font-size: 2rem;
-        font-family: var(--font);
-    }
-
-    .search_container {
-        position: relative;
-        bottom: 1.4rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .input_container {
-        position: relative;
-        top: 2.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-    }
-
-    .x_icon_container {
-        position: relative;
-        z-index: 0;
-        right: 2.2rem;
-        background-color: var(--background-input);
-        padding: 0.5rem;
-        width: 5rem;
-        height: 2.5rem;
-        border-radius: 25px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
     .x_icon_container .x_icon {
         background-color: var(--background-input);
         position: relative;
@@ -388,70 +234,19 @@ ul {
         height: 1rem;
     }
 
-    .search_btn_container {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        border-radius: 25px;
-        left: 2rem;
-        width: 5rem;
-        height: 2.5rem;
-        position: relative;
-        background-color: var(--background-input);
-    }
-
-    .search_btn_container .search_btn {
-        background-color: var(--background-input);
-        position: relative;
-        left: 0.4rem;
-        top: 0.1rem;
-        border: none;
-    }
-
-    .search_btn .magnifying_glass_icon {
-        background-color: var(--background-input);
-        height: 1.1rem;
-        width: 1.1rem;
-    }
-
     .user_input {
-        position: relative;
-        z-index: 1;
-        right: 0.1rem;
         padding-right: 1rem;
         height: 2.5rem;
         width: 60%;
-        border-radius: 25px;
-        background-color: var(--background-input);
-        border: none;
-        outline: none;
     }
 
     .cities_list {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        position: absolute;
-        z-index: 2;
         top: 6rem;
-        margin-bottom: 2rem;
         width: 70%;
     }
 
-    .city_item {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding-bottom: 1rem;
-        padding-left: 1rem;
-    }
-
     .city_btn {
-        border: none;
         font-size: 1rem;
-        font-family: var(--font-family);
-        display: flex;
-        gap: 1rem;
     }
 
     .location_icon {
@@ -461,445 +256,152 @@ ul {
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
-    * div {
-        width: 100%;
-    }
-
     .app_container {
-        position: relative;
         top: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .no_results_par {
-        font-family: var(--font);
-        position: absolute;
-        top: 15rem;
     }
 
     .app_title {
-        position: absolute;
-        z-index: -2;
         top: 5em;
         font-size: 4rem;
-        font-family: var(--font);
-    }
-
-    .search_container {
-        position: relative;
-        bottom: 1.4rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .input_container {
-        position: relative;
-        top: 2.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
     }
 
     .x_icon_container {
-        position: relative;
-        z-index: 0;
         right: 2.8rem;
-        background-color: var(--background-input);
-        padding: 0.5rem;
-        width: 5rem;
         height: 3.5rem;
-        border-radius: 25px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
     }
 
     .x_icon_container .x_icon {
-        background-color: var(--background-input);
-        position: relative;
         right: 0.5rem;
-        z-index: 2;
-        width: 1rem;
-        height: 1rem;
     }
 
     .search_btn_container {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        border-radius: 25px;
         left: 2.5rem;
-        width: 5rem;
         height: 3.5rem;
-        position: relative;
-        background-color: var(--background-input);
-    }
-
-    .search_btn_container .search_btn {
-        background-color: var(--background-input);
-        position: relative;
-        left: 0.4rem;
-        top: 0.1rem;
-        border: none;
     }
 
     .search_btn .magnifying_glass_icon {
-        position: relative;
         left: 0.2rem;
-        background-color: var(--background-input);
         height: 1.5rem;
         width: 1.5rem;
     }
 
     .user_input {
-        position: relative;
-        z-index: 1;
-        right: 0.1rem;
         padding-left: 2rem;
         padding-right: 1rem;
         height: 3.5rem;
         width: 45%;
-        border-radius: 25px;
-        background-color: var(--background-input);
-        border: none;
-        outline: none;
         font-size: 1.2rem;
     }
 
     .cities_list {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        position: absolute;
-        z-index: 2;
         top: 7.5rem;
-        margin-bottom: 2rem;
         width: 52%;
     }
 
-    .city_item {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 0rem 0.5rem 1rem 1rem;
-        text-align-last: left;
-    }
-
     .city_btn {
-        border: none;
         font-size: 1.3rem;
-        font-family: var(--font-family);
-        display: flex;
-        gap: 1rem;
         line-height: 1.8rem;
-    }
-
-    .location_icon {
-        height: 1.5rem;
-        width: 1.5rem;
     }
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
-    * div {
-        width: 100%;
-    }
-
     .app_container {
-        position: relative;
         top: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .no_results_par {
-        font-family: var(--font);
-        position: absolute;
-        top: 15rem;
     }
 
     .app_title {
-        position: absolute;
-        z-index: -2;
         top: 5em;
         font-size: 4rem;
-        font-family: var(--font);
-    }
-
-    .search_container {
-        position: relative;
-        bottom: 1.4rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .input_container {
-        position: relative;
-        top: 2.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
     }
 
     .x_icon_container {
-        position: relative;
-        z-index: 0;
         right: 2.8rem;
-        background-color: var(--background-input);
-        padding: 0.5rem;
-        width: 5rem;
         height: 3.5rem;
-        border-radius: 25px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
     }
 
     .x_icon_container .x_icon {
-        background-color: var(--background-input);
-        position: relative;
         right: 0.5rem;
-        z-index: 2;
         width: 1.1rem;
         height: 1.1rem;
     }
 
     .search_btn_container {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        border-radius: 25px;
         left: 2.5rem;
-        width: 5rem;
         height: 3.5rem;
-        position: relative;
-        background-color: var(--background-input);
-    }
-
-    .search_btn_container .search_btn {
-        background-color: var(--background-input);
-        position: relative;
-        left: 0.4rem;
-        top: 0.1rem;
-        border: none;
     }
 
     .search_btn .magnifying_glass_icon {
-        position: relative;
         left: 0.2rem;
-        background-color: var(--background-input);
         height: 1.5rem;
         width: 1.5rem;
     }
 
     .user_input {
-        position: relative;
-        z-index: 1;
-        right: 0.1rem;
         padding-left: 2rem;
         padding-right: 1rem;
         height: 3.5rem;
         width: 50%;
-        border-radius: 25px;
-        background-color: var(--background-input);
-        border: none;
-        outline: none;
         font-size: 1.2rem;
     }
 
     .cities_list {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        position: absolute;
-        z-index: 2;
         top: 7.5rem;
-        margin-bottom: 2rem;
         width: 52%;
     }
 
-    .city_item {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 0rem 0.5rem 1rem 1rem;
-        text-align-last: left;
-    }
-
     .city_btn {
-        border: none;
         font-size: 1.3rem;
-        font-family: var(--font-family);
-        display: flex;
-        gap: 1rem;
         line-height: 1.8rem;
-    }
-
-    .location_icon {
-        height: 1.5rem;
-        width: 1.5rem;
     }
 }
 
 @media only screen and (min-width: 1601px) {
-    * div {
-        width: 100%;
-    }
-
     .app_container {
-        position: relative;
         top: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .no_results_par {
-        font-family: var(--font);
-        position: absolute;
-        top: 15rem;
     }
 
     .app_title {
-        position: absolute;
-        z-index: -2;
         top: 5em;
         font-size: 4rem;
-        font-family: var(--font);
-    }
-
-    .search_container {
-        position: relative;
-        bottom: 1.4rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .input_container {
-        position: relative;
-        top: 2.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
     }
 
     .x_icon_container {
-        position: relative;
-        z-index: 0;
         right: 2.8rem;
-        background-color: var(--background-input);
-        padding: 0.5rem;
-        width: 5rem;
         height: 3.5rem;
-        border-radius: 25px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
     }
 
     .x_icon_container .x_icon {
-        background-color: var(--background-input);
-        position: relative;
         right: 0.5rem;
-        z-index: 2;
         width: 1.1rem;
         height: 1.1rem;
     }
 
     .search_btn_container {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        border-radius: 25px;
         left: 2.5rem;
-        width: 5rem;
         height: 3.5rem;
-        position: relative;
-        background-color: var(--background-input);
-    }
-
-    .search_btn_container .search_btn {
-        background-color: var(--background-input);
-        position: relative;
-        left: 0.4rem;
-        top: 0.1rem;
-        border: none;
     }
 
     .search_btn .magnifying_glass_icon {
-        position: relative;
         left: 0.2rem;
-        background-color: var(--background-input);
         height: 1.5rem;
         width: 1.5rem;
     }
 
     .user_input {
-        position: relative;
-        z-index: 1;
-        right: 0.1rem;
         padding-left: 2rem;
         padding-right: 1rem;
         height: 3.5rem;
         width: 50%;
-        border-radius: 25px;
-        background-color: var(--background-input);
-        border: none;
-        outline: none;
         font-size: 1.2rem;
     }
 
     .cities_list {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        position: absolute;
-        z-index: 2;
         top: 7.5rem;
-        margin-bottom: 2rem;
         width: 48%;
     }
 
-    .city_item {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 0rem 0.5rem 1rem 1rem;
-        text-align-last: left;
-    }
-
     .city_btn {
-        border: none;
         font-size: 1.5rem;
-        font-family: var(--font-family);
-        display: flex;
-        gap: 1rem;
         line-height: 1.8rem;
-    }
-
-    .location_icon {
-        height: 1.5rem;
-        width: 1.5rem;
     }
 }
