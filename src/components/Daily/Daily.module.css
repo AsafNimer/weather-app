@@ -1,4 +1,4 @@
-@media only screen and (max-width: 400px) and (orientation: portrait) {
+@media only screen and (max-width: 480px) and (orientation: portrait) {
     .daily_component_container {
         background-color: var(--background);
         padding: 0.8rem;
@@ -52,6 +52,7 @@
     .minmax_temp_container {
         background-color: var(--sub-background);
         display: flex;
+        justify-content: center;
     }
 
     .minmax_temps {
@@ -60,15 +61,329 @@
         font-family: var(--font);
     }
 }
-@media only screen and (min-width: 400px) and (max-width: 480px) {
-}
+
 @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .daily_component_container {
+        background-color: var(--background);
+        padding: 0.8rem;
+        border-radius: 15px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 5px 5px 5px rgb(206, 202, 202);
+    }
+
+    .daily_title {
+        position: relative;
+        bottom: 0.5rem;
+        left: 0.2rem;
+        background-color: var(--background);
+        font-family: var(--font);
+        font-size: 0.9rem;
+    }
+
+    .day_cards_container {
+        background-color: var(--background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+    }
+
+    .day_card {
+        background-color: var(--sub-background);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+    }
+
+    .week_day {
+        background-color: var(--sub-background);
+        font-size: 0.8rem;
+        font-family: var(--font);
+    }
+
+    .weekDay_icon {
+        background-color: var(--sub-background);
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .minmax_temp_container {
+        background-color: var(--sub-background);
+        display: flex;
+        justify-content: center;
+    }
+
+    .minmax_temps {
+        background-color: var(--sub-background);
+        font-size: 0.8rem;
+        font-family: var(--font);
+    }
 }
+
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .daily_component_container {
+        background-color: var(--background);
+        padding: 0.8rem;
+        border-radius: 15px;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 5px 5px 5px rgb(206, 202, 202);
+    }
+
+    .daily_title {
+        position: relative;
+        bottom: 0.5rem;
+        left: 0.2rem;
+        background-color: var(--background);
+        font-family: var(--font);
+        font-size: 0.9rem;
+    }
+
+    .day_cards_container {
+        background-color: var(--background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+    }
+
+    .day_card {
+        background-color: var(--sub-background);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+    }
+
+    .week_day {
+        background-color: var(--sub-background);
+        font-size: 0.8rem;
+        font-family: var(--font);
+    }
+
+    .weekDay_icon {
+        background-color: var(--sub-background);
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .minmax_temp_container {
+        background-color: var(--sub-background);
+        display: flex;
+        justify-content: center;
+    }
+
+    .minmax_temps {
+        background-color: var(--sub-background);
+        font-size: 0.8rem;
+        font-family: var(--font);
+    }
 }
+
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    .daily_component_container {
+        background-color: var(--background);
+        padding: 0.8rem;
+        border-radius: 15px;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 5px 5px 5px rgb(206, 202, 202);
+    }
+
+    .daily_title {
+        position: relative;
+        bottom: 0.5rem;
+        left: 0.2rem;
+        background-color: var(--background);
+        font-family: var(--font);
+        font-size: 1.3rem;
+    }
+
+    .day_cards_container {
+        background-color: var(--background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+    }
+
+    .day_card {
+        background-color: var(--sub-background);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 8rem;
+        width: 100%;
+        border-radius: 15px;
+        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+    }
+
+    .week_day {
+        background-color: var(--sub-background);
+        font-size: 1rem;
+        font-family: var(--font);
+    }
+
+    .weekDay_icon {
+        background-color: var(--sub-background);
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .minmax_temp_container {
+        background-color: var(--sub-background);
+        display: flex;
+        justify-content: center;
+    }
+
+    .minmax_temps {
+        background-color: var(--sub-background);
+        font-size: 1rem;
+        font-family: var(--font);
+    }
 }
+
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
+    .daily_component_container {
+        background-color: var(--background);
+        padding: 0.8rem;
+        border-radius: 15px;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 5px 5px 5px rgb(206, 202, 202);
+    }
+
+    .daily_title {
+        position: relative;
+        bottom: 0.5rem;
+        left: 0.2rem;
+        background-color: var(--background);
+        font-family: var(--font);
+        font-size: 1.3rem;
+    }
+
+    .day_cards_container {
+        background-color: var(--background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+    }
+
+    .day_card {
+        background-color: var(--sub-background);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 8rem;
+        width: 100%;
+        border-radius: 15px;
+        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+    }
+
+    .week_day {
+        background-color: var(--sub-background);
+        font-size: 1rem;
+        font-family: var(--font);
+    }
+
+    .weekDay_icon {
+        background-color: var(--sub-background);
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .minmax_temp_container {
+        background-color: var(--sub-background);
+        display: flex;
+        justify-content: center;
+    }
+
+    .minmax_temps {
+        background-color: var(--sub-background);
+        font-size: 1rem;
+        font-family: var(--font);
+    }
 }
+
 @media only screen and (min-width: 1601px) {
+    .daily_component_container {
+        background-color: var(--background);
+        padding: 0.8rem;
+        border-radius: 15px;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 5px 5px 5px rgb(206, 202, 202);
+    }
+
+    .daily_title {
+        position: relative;
+        bottom: 0.5rem;
+        left: 0.2rem;
+        background-color: var(--background);
+        font-family: var(--font);
+        font-size: 1.1rem;
+    }
+
+    .day_cards_container {
+        background-color: var(--background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+    }
+
+    .day_card {
+        background-color: var(--sub-background);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 8rem;
+        border-radius: 15px;
+        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+    }
+
+    .week_day {
+        background-color: var(--sub-background);
+        font-size: 1.1rem;
+        font-family: var(--font);
+    }
+
+    .weekDay_icon {
+        background-color: var(--sub-background);
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .minmax_temp_container {
+        background-color: var(--sub-background);
+        display: flex;
+        justify-content: center;
+    }
+
+    .minmax_temps {
+        background-color: var(--sub-background);
+        font-size: 1.1rem;
+        font-family: var(--font);
+    }
 }

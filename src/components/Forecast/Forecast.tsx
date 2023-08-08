@@ -23,7 +23,7 @@ function Forecast(props: addProps): JSX.Element {
     };
 
     return (
-        <div
+        <section
             className={
                 display
                     ? styles.forecast_component_container
@@ -37,7 +37,7 @@ function Forecast(props: addProps): JSX.Element {
             <Current />
             <Hourly />
             <Daily />
-        </div>
+        </section>
     );
 }
 

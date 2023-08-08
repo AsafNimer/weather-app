@@ -7,7 +7,7 @@ function Hourly(): JSX.Element {
     const { forecast } = useContext(ForecastContext);
     return (
         <>
-            <div className={styles.hourly_component_container}>
+            <section className={styles.hourly_component_container}>
                 <p className={styles.hourly_title}>
                     {forecast !== null ? "Hourly" : ""}
                 </p>
@@ -62,7 +62,7 @@ function Hourly(): JSX.Element {
                               })
                         : ""}
                 </div>
-            </div>
+            </section>
         </>
     );
 }

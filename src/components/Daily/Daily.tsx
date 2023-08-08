@@ -7,7 +7,7 @@ function Daily(): JSX.Element {
     const { forecast } = useContext(ForecastContext);
     return (
         <>
-            <div className={styles.daily_component_container}>
+            <section className={styles.daily_component_container}>
                 <p className={styles.daily_title}>
                     {forecast !== null ? "Daily" : ""}
                 </p>
@@ -64,7 +64,7 @@ function Daily(): JSX.Element {
                               })
                         : ""}
                 </div>
-            </div>
+            </section>
         </>
     );
 }
