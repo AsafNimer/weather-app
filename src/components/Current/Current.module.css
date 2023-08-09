@@ -231,11 +231,12 @@
 
     .component_bottom_container {
         align-items: center;
+        flex-direction: column;
     }
 
     .minmax_sunrise_sunset_container {
         width: 80%;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .minmax_sunrise_sunset_container .min {
