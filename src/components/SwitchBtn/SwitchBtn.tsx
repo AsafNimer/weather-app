@@ -1,5 +1,5 @@
 import styles from "./SwitchBtn.module.css";
-import { current, getForecast, searchCity } from "services/Fetch";
+import { getCurrent, getForecast, searchCity } from "services/Fetch";
 import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 
@@ -14,32 +14,29 @@ function SwitchBtn(): JSX.Element {
     } = useContext(ForecastContext);
 
     const checkbox = document.getElementById("switch") as HTMLInputElement;
+
+    const setCelcOrFahr = () => {
+        if (checkbox.checked) {
+            setUnits("imperial");
+            return units;
+        }
+        setUnits("metric");
+        return units;
+    };
+
     const handleSwitch = () => {
         if (!observedCity || !userInput) {
             console.log("returned");
             return;
         } else {
-            const apiCall = () => {
-                searchCity(observedCity.name).then(() => {
-                    current(observedCity, units).then((data) => {
-                        setCurrentWeather(data);
-                    });
-                    getForecast(observedCity, units).then((data) => {
-                        setForecast(data);
-                    });
+            searchCity(observedCity.name).then(() => {
+                getCurrent(observedCity, setCelcOrFahr()).then((data) => {
+                    setCurrentWeather(data);
                 });
-            };
-            console.log("CHECKBOX.CHECKED: ", checkbox.checked);
-
-            if (!checkbox.checked) {
-                setUnits("imperial");
-                apiCall();
-                console.log("IT'S CHECKED . . .screen shows Celcius");
-            } else {
-                setUnits("metric");
-                apiCall();
-                console.log("NOT CHECKED . . . screen shows Fahrenheit");
-            }
+                getForecast(observedCity, setCelcOrFahr()).then((data) => {
+                    setForecast(data);
+                });
+            });
         }
     };
 

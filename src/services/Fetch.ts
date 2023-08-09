@@ -31,7 +31,7 @@ export const searchCity = (value: string) => {
     return response;
 };
 
-export const current = (value: FirstApiResultType, units: string) => {
+export const getCurrent = (value: FirstApiResultType, units: string) => {
     const response = fetchData(
         `http://${URL}/data/2.5/weather?lat=${value.lat}&lon=${value.lon}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`,
         value,

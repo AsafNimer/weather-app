@@ -1,1062 +1,726 @@
+.current_component_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: var(--background);
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgb(206, 202, 202);
+}
+
+.current_component_container .component_upper_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background);
+    margin-top: 0.5rem;
+    border-radius: 15px;
+}
+
+.current_component_container .component_upper_container .switch_btn_container {
+    width: 3.2rem;
+    position: absolute;
+    right: 0.5rem;
+    background-color: var(--background);
+}
+
+.component_upper_container .current_temp {
+    font-family: var(--font);
+    background-color: var(--background);
+    font-size: 2rem;
+}
+
+.component_upper_container .description {
+    font-family: var(--font);
+    background-color: var(--background);
+}
+
+.component_bottom_container {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    background-color: var(--background);
+}
+
+.minmax_sunrise_sunset_container {
+    background-color: var(--background);
+    display: flex;
+}
+
+.minmax_sunrise_sunset_container .min {
+    font-family: var(--font);
+    background-color: var(--background);
+}
+
+.minmax_sunrise_sunset_container .max {
+    font-family: var(--font);
+    background-color: var(--background);
+}
+
+.minmax_sunrise_sunset_container .sunrise_container {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+
+.minmax_sunrise_sunset_container .sunset_container {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+
+.fls_like_hum_wnd_poll_icon_container {
+    display: flex;
+    background-color: var(--background);
+}
+
+.img_div {
+    display: flex;
+    background-color: var(--background);
+}
+
+.weather_icon_img {
+    background-color: var(--sub-background);
+    border-radius: 15px;
+}
+
+.data_wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+.data_wrapper .pollution {
+    font-family: var(--font);
+    font-size: 0.7rem;
+    background-color: var(--background);
+}
+
+.data_wrapper .feels_like {
+    font-family: var(--font);
+    background-color: var(--background);
+}
+
+.data_wrapper .humidity {
+    font-family: var(--font);
+    background-color: var(--background);
+}
+
+.data_wrapper .wind {
+    font-family: var(--font);
+    font-size: 0.7rem;
+    background-color: var(--background);
+}
+
+.sunrise_container {
+    background-color: var(--background);
+    display: flex;
+}
+
+.sunset_container {
+    background-color: var(--background);
+    display: flex;
+}
+
+.sunrise_container .sunrise {
+    font-family: var(--font);
+    background-color: var(--background);
+}
+
+.sunset_container .sunset {
+    font-family: var(--font);
+    background-color: var(--background);
+}
+
+.data_icon {
+    background-color: var(--background);
+}
+
+.sunrise_sunset_icon {
+    background-color: var(--background);
+}
+
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     .current_component_container {
         width: 100%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        background-color: var(--background);
-        border-radius: 15px;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
-    }
-
-    .current_component_container .component_upper_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--background);
-        margin-top: 0.5rem;
-        border-radius: 15px;
-    }
-
-    .current_component_container
-        .component_upper_container
-        .switch_btn_container {
-        width: 3.2rem;
-        position: absolute;
-        right: 0.5rem;
-        background-color: var(--background);
-    }
-
-    .component_upper_container .current_temp {
-        font-family: var(--font);
-        background-color: var(--background);
-        font-size: 2rem;
-    }
-
-    .component_upper_container .description {
-        font-family: var(--font);
-        background-color: var(--background);
     }
 
     .component_bottom_container {
-        width: 100%;
-        display: flex;
-        gap: 2rem;
         flex-direction: column;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container {
-        background-color: var(--background);
-        display: flex;
         justify-content: center;
         gap: 1.2rem;
     }
 
     .minmax_sunrise_sunset_container .min {
-        font-family: var(--font);
         font-size: 0.8rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container .max {
-        font-family: var(--font);
         font-size: 0.8rem;
-        background-color: var(--background);
-    }
-
-    .minmax_sunrise_sunset_container .sunrise_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
-    }
-
-    .minmax_sunrise_sunset_container .sunset_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
     }
 
     .fls_like_hum_wnd_poll_icon_container {
-        display: flex;
         justify-content: space-evenly;
-        background-color: var(--background);
     }
 
     .img_div {
-        display: flex;
         justify-content: center;
-        background-color: var(--background);
     }
 
     .weather_icon_img {
-        background-color: var(--sub-background);
         width: 5rem;
         height: 5rem;
-        border-radius: 15px;
     }
 
     .data_wrapper {
-        display: flex;
-        flex-direction: column;
         gap: 0.5rem;
-        background-color: var(--background);
     }
+
     .data_wrapper .pollution {
-        font-family: var(--font);
         font-size: 0.7rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .feels_like {
-        font-family: var(--font);
         font-size: 0.7rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .humidity {
-        font-family: var(--font);
         font-size: 0.7rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .wind {
-        font-family: var(--font);
         font-size: 0.7rem;
-        background-color: var(--background);
     }
 
     .sunrise_container {
-        background-color: var(--background);
-        display: flex;
         gap: 0.3rem;
     }
 
     .sunset_container {
-        background-color: var(--background);
-        display: flex;
         gap: 0.3rem;
     }
 
     .sunrise_container .sunrise {
-        font-family: var(--font);
         font-size: 0.7rem;
-        background-color: var(--background);
     }
 
     .sunset_container .sunset {
-        font-family: var(--font);
         font-size: 0.7rem;
-        background-color: var(--background);
     }
 
     .data_icon {
         margin-right: 0.2rem;
-        background-color: var(--background);
     }
 
     .sunrise_sunset_icon {
         width: 1rem;
         height: 1rem;
-        background-color: var(--background);
     }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
     .current_component_container {
         width: 100%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        background-color: var(--background);
-        border-radius: 15px;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
-    }
-
-    .current_component_container .component_upper_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--background);
-        margin-top: 0.5rem;
-        border-radius: 15px;
-    }
-
-    .current_component_container
-        .component_upper_container
-        .switch_btn_container {
-        width: 3.2rem;
-        position: absolute;
-        right: 0.5rem;
-        background-color: var(--background);
-    }
-
-    .component_upper_container .current_temp {
-        font-family: var(--font);
-        background-color: var(--background);
-        font-size: 2rem;
-    }
-
-    .component_upper_container .description {
-        font-family: var(--font);
-        background-color: var(--background);
     }
 
     .component_bottom_container {
-        width: 100%;
-        display: flex;
         align-items: center;
-        gap: 2rem;
-        flex-direction: column;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container {
         width: 80%;
-        background-color: var(--background);
-        display: flex;
         justify-content: space-between;
     }
 
     .minmax_sunrise_sunset_container .min {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container .max {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
-    }
-
-    .minmax_sunrise_sunset_container .sunrise_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
-    }
-
-    .minmax_sunrise_sunset_container .sunset_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
     }
 
     .fls_like_hum_wnd_poll_icon_container {
         width: 90%;
-        display: flex;
-        background-color: var(--background);
     }
 
     .img_div {
         padding-right: 1.5rem;
-        display: flex;
         justify-content: flex-end;
         width: 90%;
-        background-color: var(--background);
     }
 
     .weather_icon_img {
-        background-color: var(--sub-background);
         width: 7rem;
         height: 7rem;
-        border-radius: 15px;
     }
 
     .data_wrapper {
-        padding-left: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
         gap: 0.5rem;
-        background-color: var(--background);
+        justify-content: center;
+        padding-left: 1.5rem;
+        align-items: flex-start;
     }
+
     .data_wrapper .pollution {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .feels_like {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .humidity {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .wind {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .sunrise_container {
-        background-color: var(--background);
-        display: flex;
         gap: 0.8rem;
     }
 
     .sunset_container {
-        background-color: var(--background);
-        display: flex;
         gap: 0.8rem;
     }
 
     .sunrise_container .sunrise {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .sunset_container .sunset {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .data_icon {
         margin-right: 0.5rem;
-        background-color: var(--background);
     }
 
     .sunrise_sunset_icon {
         width: 1.3rem;
         height: 1.3rem;
-        background-color: var(--background);
     }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .current_component_container {
         width: 80%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
         padding-bottom: 2rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        background-color: var(--background);
-        border-radius: 15px;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
-    }
-
-    .current_component_container .component_upper_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--background);
-        margin-top: 0.5rem;
-        border-radius: 15px;
-    }
-
-    .current_component_container
-        .component_upper_container
-        .switch_btn_container {
-        width: 3.2rem;
-        position: absolute;
-        right: 0.5rem;
-        background-color: var(--background);
-    }
-
-    .component_upper_container .current_temp {
-        font-family: var(--font);
-        background-color: var(--background);
-        font-size: 2rem;
-    }
-
-    .component_upper_container .description {
-        font-family: var(--font);
-        background-color: var(--background);
     }
 
     .component_bottom_container {
-        width: 100%;
-        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container {
         width: fit-content;
-        background-color: var(--background);
-        display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
     }
 
     .minmax_sunrise_sunset_container .min {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container .max {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
-    }
-
-    .minmax_sunrise_sunset_container .sunrise_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
-    }
-
-    .minmax_sunrise_sunset_container .sunset_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
     }
 
     .fls_like_hum_wnd_poll_icon_container {
         width: fit-content;
-        display: flex;
-        background-color: var(--background);
     }
 
     .img_div {
         position: relative;
         right: 2rem;
         padding-right: 1.5rem;
-        display: flex;
         width: fit-content;
-        background-color: var(--background);
     }
 
     .weather_icon_img {
-        background-color: var(--sub-background);
         width: 7rem;
         height: 7rem;
-        border-radius: 15px;
     }
 
     .data_wrapper {
         width: fit-content;
         padding-left: 1.5rem;
-        display: flex;
-        flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-        background-color: var(--background);
     }
+
     .data_wrapper .pollution {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .feels_like {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .humidity {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .wind {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .sunrise_container {
-        background-color: var(--background);
-        display: flex;
         gap: 0.8rem;
     }
 
     .sunset_container {
-        background-color: var(--background);
-        display: flex;
         gap: 0.8rem;
     }
 
     .sunrise_container .sunrise {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .sunset_container .sunset {
-        font-family: var(--font);
         font-size: 0.9rem;
-        background-color: var(--background);
     }
 
     .data_icon {
         margin-right: 1rem;
-        background-color: var(--background);
     }
 
     .sunrise_sunset_icon {
         width: 1.3rem;
         height: 1.3rem;
-        background-color: var(--background);
     }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
     .current_component_container {
         width: 60%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
         padding-bottom: 3rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        background-color: var(--background);
-        border-radius: 15px;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .current_component_container .component_upper_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--background);
         margin-top: 1rem;
-        border-radius: 15px;
-    }
-
-    .current_component_container
-        .component_upper_container
-        .switch_btn_container {
-        width: 3.2rem;
-        position: absolute;
-        right: 0.5rem;
-        background-color: var(--background);
     }
 
     .component_upper_container .current_temp {
-        font-family: var(--font);
-        background-color: var(--background);
         font-size: 2.5rem;
     }
 
     .component_upper_container .description {
-        font-family: var(--font);
-        background-color: var(--background);
         font-size: 1.5rem;
     }
 
     .component_bottom_container {
-        width: 100%;
-        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container {
         width: fit-content;
-        background-color: var(--background);
-        display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
     }
 
     .minmax_sunrise_sunset_container .min {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container .max {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
-    }
-
-    .minmax_sunrise_sunset_container .sunrise_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
-    }
-
-    .minmax_sunrise_sunset_container .sunset_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
     }
 
     .fls_like_hum_wnd_poll_icon_container {
         width: fit-content;
-        display: flex;
-        background-color: var(--background);
     }
 
     .img_div {
         position: relative;
         padding-right: 1.5rem;
-        display: flex;
         width: fit-content;
-        background-color: var(--background);
     }
 
     .weather_icon_img {
-        background-color: var(--sub-background);
         width: 9rem;
         height: 9rem;
-        border-radius: 15px;
     }
 
     .data_wrapper {
         width: fit-content;
         padding-left: 1.5rem;
-        display: flex;
-        flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-        background-color: var(--background);
     }
+
     .data_wrapper .pollution {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .feels_like {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .humidity {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .wind {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .sunrise_container {
-        background-color: var(--background);
-        display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.3rem;
     }
 
     .sunset_container {
-        background-color: var(--background);
-        display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.3rem;
     }
 
     .sunrise_container .sunrise {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .sunset_container .sunset {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .data_icon {
         margin-right: 1rem;
-        background-color: var(--background);
     }
 
     .sunrise_sunset_icon {
         width: 1.7rem;
         height: 1.7rem;
         margin-right: 1rem;
-        background-color: var(--background);
     }
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
     .current_component_container {
         width: 60%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
         padding-bottom: 3rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        background-color: var(--background);
-        border-radius: 15px;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .current_component_container .component_upper_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--background);
-        margin-top: 1rem;
         margin-bottom: 1rem;
-        border-radius: 15px;
-    }
-
-    .current_component_container
-        .component_upper_container
-        .switch_btn_container {
-        width: 3.2rem;
-        position: absolute;
-        right: 0.5rem;
-        background-color: var(--background);
     }
 
     .component_upper_container .current_temp {
-        font-family: var(--font);
-        background-color: var(--background);
         font-size: 2.5rem;
     }
 
     .component_upper_container .description {
-        font-family: var(--font);
-        background-color: var(--background);
         font-size: 1.5rem;
     }
 
     .component_bottom_container {
-        width: 100%;
-        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container {
         width: fit-content;
-        background-color: var(--background);
-        display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
     }
 
     .minmax_sunrise_sunset_container .min {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container .max {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
-    }
-
-    .minmax_sunrise_sunset_container .sunrise_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
-    }
-
-    .minmax_sunrise_sunset_container .sunset_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
     }
 
     .fls_like_hum_wnd_poll_icon_container {
         width: fit-content;
-        display: flex;
-        background-color: var(--background);
     }
 
     .img_div {
         position: relative;
         right: 2rem;
         padding-right: 1.5rem;
-        display: flex;
         width: fit-content;
-        background-color: var(--background);
     }
 
     .weather_icon_img {
-        background-color: var(--sub-background);
         width: 9rem;
         height: 9rem;
-        border-radius: 15px;
     }
 
     .data_wrapper {
         width: fit-content;
         padding-left: 1.5rem;
-        display: flex;
-        flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-        background-color: var(--background);
     }
+
     .data_wrapper .pollution {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .feels_like {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .humidity {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .wind {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .sunrise_container {
-        background-color: var(--background);
-        display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.3rem;
     }
 
     .sunset_container {
-        background-color: var(--background);
-        display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.3rem;
     }
 
     .sunrise_container .sunrise {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .sunset_container .sunset {
-        font-family: var(--font);
         font-size: 1rem;
-        background-color: var(--background);
     }
 
     .data_icon {
         margin-right: 1rem;
-        background-color: var(--background);
     }
 
     .sunrise_sunset_icon {
         width: 1.7rem;
         height: 1.7rem;
         margin-right: 1rem;
-        background-color: var(--background);
     }
 }
 
 @media only screen and (min-width: 1601px) {
     .current_component_container {
         width: 60%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
         padding-bottom: 3rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        background-color: var(--background);
-        border-radius: 15px;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .current_component_container .component_upper_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--background);
         margin-top: 1rem;
         margin-bottom: 1rem;
-        border-radius: 15px;
-    }
-
-    .current_component_container
-        .component_upper_container
-        .switch_btn_container {
-        width: 3.2rem;
-        position: absolute;
-        right: 0.5rem;
-        background-color: var(--background);
     }
 
     .component_upper_container .current_temp {
-        font-family: var(--font);
-        background-color: var(--background);
         font-size: 2.5rem;
     }
 
     .component_upper_container .description {
-        font-family: var(--font);
-        background-color: var(--background);
         font-size: 1.5rem;
     }
 
     .component_bottom_container {
-        width: 100%;
-        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container {
         width: fit-content;
-        background-color: var(--background);
-        display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
     }
 
     .minmax_sunrise_sunset_container .min {
-        font-family: var(--font);
         font-size: 1.1rem;
-        background-color: var(--background);
     }
 
     .minmax_sunrise_sunset_container .max {
-        font-family: var(--font);
         font-size: 1.1rem;
-        background-color: var(--background);
-    }
-
-    .minmax_sunrise_sunset_container .sunrise_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
-    }
-
-    .minmax_sunrise_sunset_container .sunset_container {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
     }
 
     .fls_like_hum_wnd_poll_icon_container {
         width: fit-content;
-        display: flex;
-        background-color: var(--background);
     }
 
     .img_div {
         position: relative;
         right: 5rem;
         padding-right: 1.5rem;
-        display: flex;
         width: fit-content;
-        background-color: var(--background);
     }
 
     .weather_icon_img {
-        background-color: var(--sub-background);
         width: 9rem;
         height: 9rem;
-        border-radius: 15px;
     }
 
     .data_wrapper {
         width: fit-content;
         padding-left: 1.5rem;
-        display: flex;
-        flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-        background-color: var(--background);
     }
+
     .data_wrapper .pollution {
-        font-family: var(--font);
         font-size: 1.1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .feels_like {
-        font-family: var(--font);
         font-size: 1.1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .humidity {
-        font-family: var(--font);
         font-size: 1.1rem;
-        background-color: var(--background);
     }
 
     .data_wrapper .wind {
-        font-family: var(--font);
         font-size: 1.1rem;
-        background-color: var(--background);
     }
 
     .sunrise_container {
-        background-color: var(--background);
-        display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.3rem;
     }
 
     .sunset_container {
-        background-color: var(--background);
-        display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.3rem;
     }
 
     .sunrise_container .sunrise {
-        font-family: var(--font);
         font-size: 1.1rem;
-        background-color: var(--background);
     }
 
     .sunset_container .sunset {
-        font-family: var(--font);
         font-size: 1.1rem;
-        background-color: var(--background);
     }
 
     .data_icon {
         margin-right: 1rem;
-        background-color: var(--background);
     }
 
     .sunrise_sunset_icon {
         width: 1.7rem;
         height: 1.7rem;
         margin-right: 1rem;
-        background-color: var(--background);
     }
 }

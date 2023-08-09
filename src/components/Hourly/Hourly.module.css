@@ -1,448 +1,182 @@
+.hourly_component_container {
+    padding: 0.8rem;
+    background-color: var(--background);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 5px 5px 5px rgb(206, 202, 202);
+}
+
+.hourly_title {
+    background-color: var(--background);
+    font-family: var(--font);
+    position: relative;
+    bottom: 0.5rem;
+    left: 0.2rem;
+}
+
+.hour_cards_container::-webkit-scrollbar {
+    display: none;
+}
+
+.hour_cards_container {
+    overflow-x: scroll;
+    display: flex;
+    width: 100%;
+    background-color: var(--background);
+    gap: 0.2rem;
+}
+
+.hour_card {
+    padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+    background-color: var(--sub-background);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hour_par {
+    background-color: var(--sub-background);
+    font-size: 0.8rem;
+    font-family: var(--font);
+}
+
+.icon_temp_container {
+    background-color: var(--sub-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hourly_weather_icon {
+    background-color: var(--sub-background);
+    width: 3rem;
+    height: 3rem;
+}
+
+.hourly_temp {
+    font-size: 0.8rem;
+    font-family: var(--font);
+    background-color: var(--sub-background);
+}
+
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     .hourly_component_container {
-        padding: 0.8rem;
-        background-color: var(--background);
-        border-radius: 15px;
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .hourly_title {
-        background-color: var(--background);
-        font-family: var(--font);
         font-size: 0.9rem;
-        position: relative;
-        bottom: 0.5rem;
-        left: 0.2rem;
-    }
-
-    .hour_cards_container {
-        overflow-x: scroll;
-        display: flex;
-        width: 100%;
-        background-color: var(--background);
-        gap: 0.2rem;
-    }
-
-    .hour_cards_container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .hour_card {
-        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
-        background-color: var(--sub-background);
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hour_par {
-        background-color: var(--sub-background);
-        font-size: 0.8rem;
-        font-family: var(--font);
-    }
-
-    .icon_temp_container {
-        background-color: var(--sub-background);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hourly_weather_icon {
-        background-color: var(--sub-background);
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .hourly_temp {
-        font-size: 0.8rem;
-        font-family: var(--font);
-        background-color: var(--sub-background);
     }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
     .hourly_component_container {
-        padding: 0.8rem;
-        background-color: var(--background);
-        border-radius: 15px;
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .hourly_title {
-        background-color: var(--background);
-        font-family: var(--font);
         font-size: 0.9rem;
-        position: relative;
-        bottom: 0.5rem;
-        left: 0.2rem;
-    }
-
-    .hour_cards_container {
-        overflow-x: scroll;
-        display: flex;
-        width: 100%;
-        background-color: var(--background);
-        gap: 0.2rem;
-    }
-
-    .hour_cards_container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .hour_card {
-        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
-        background-color: var(--sub-background);
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hour_par {
-        background-color: var(--sub-background);
-        font-size: 0.8rem;
-        font-family: var(--font);
-    }
-
-    .icon_temp_container {
-        background-color: var(--sub-background);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hourly_weather_icon {
-        background-color: var(--sub-background);
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .hourly_temp {
-        font-size: 0.8rem;
-        font-family: var(--font);
-        background-color: var(--sub-background);
     }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .hourly_component_container {
-        padding: 0.8rem;
-        background-color: var(--background);
-        border-radius: 15px;
         width: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .hourly_title {
-        background-color: var(--background);
-        font-family: var(--font);
         font-size: 0.9rem;
-        position: relative;
-        bottom: 0.5rem;
-        left: 0.2rem;
-    }
-
-    .hour_cards_container {
-        overflow-x: scroll;
-        display: flex;
-        width: 100%;
-        background-color: var(--background);
-        gap: 0.2rem;
-    }
-
-    .hour_cards_container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .hour_card {
-        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
-        background-color: var(--sub-background);
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hour_par {
-        background-color: var(--sub-background);
-        font-size: 0.8rem;
-        font-family: var(--font);
-    }
-
-    .icon_temp_container {
-        background-color: var(--sub-background);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hourly_weather_icon {
-        background-color: var(--sub-background);
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .hourly_temp {
-        font-size: 0.8rem;
-        font-family: var(--font);
-        background-color: var(--sub-background);
     }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
     .hourly_component_container {
-        padding: 0.8rem;
-        background-color: var(--background);
-        border-radius: 15px;
         width: 60%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .hourly_title {
-        background-color: var(--background);
-        font-family: var(--font);
         font-size: 1.3rem;
-        position: relative;
-        bottom: 0.5rem;
-        left: 0.2rem;
-    }
-
-    .hour_cards_container {
-        overflow-x: scroll;
-        display: flex;
-        width: 100%;
-        background-color: var(--background);
-        gap: 0.2rem;
-    }
-
-    .hour_cards_container::-webkit-scrollbar {
-        display: none;
     }
 
     .hour_card {
-        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
-        background-color: var(--sub-background);
-        border-radius: 15px;
         width: 100%;
         height: 8rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
     .hour_par {
-        background-color: var(--sub-background);
         font-size: 1rem;
-        font-family: var(--font);
-    }
-
-    .icon_temp_container {
-        background-color: var(--sub-background);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
     .hourly_weather_icon {
-        background-color: var(--sub-background);
         width: 4.5rem;
         height: 4.5rem;
     }
 
     .hourly_temp {
         font-size: 1rem;
-        font-family: var(--font);
-        background-color: var(--sub-background);
     }
 }
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
     .hourly_component_container {
-        padding: 0.8rem;
-        background-color: var(--background);
-        border-radius: 15px;
         width: 60%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .hourly_title {
-        background-color: var(--background);
-        font-family: var(--font);
         font-size: 1.3rem;
-        position: relative;
-        bottom: 0.5rem;
-        left: 0.2rem;
-    }
-
-    .hour_cards_container {
-        overflow-x: scroll;
-        display: flex;
-        width: 100%;
-        background-color: var(--background);
-        gap: 0.2rem;
-    }
-
-    .hour_cards_container::-webkit-scrollbar {
-        display: none;
     }
 
     .hour_card {
-        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
-        background-color: var(--sub-background);
-        border-radius: 15px;
         width: 100%;
         height: 8rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
     .hour_par {
-        background-color: var(--sub-background);
         font-size: 1rem;
-        font-family: var(--font);
-    }
-
-    .icon_temp_container {
-        background-color: var(--sub-background);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
     .hourly_weather_icon {
-        background-color: var(--sub-background);
         width: 4.5rem;
         height: 4.5rem;
     }
 
     .hourly_temp {
         font-size: 1rem;
-        font-family: var(--font);
-        background-color: var(--sub-background);
     }
 }
 
 @media only screen and (min-width: 1601px) {
     .hourly_component_container {
-        padding: 0.8rem;
-        background-color: var(--background);
-        border-radius: 15px;
         width: 60%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: 5px 5px 5px rgb(206, 202, 202);
     }
 
     .hourly_title {
-        background-color: var(--background);
-        font-family: var(--font);
         font-size: 1.3rem;
-        position: relative;
-        bottom: 0.5rem;
-        left: 0.2rem;
-    }
-
-    .hour_cards_container {
-        overflow-x: scroll;
-        display: flex;
-        width: 100%;
-        background-color: var(--background);
-        gap: 0.2rem;
-    }
-
-    .hour_cards_container::-webkit-scrollbar {
-        display: none;
     }
 
     .hour_card {
-        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
-        background-color: var(--sub-background);
-        border-radius: 15px;
         width: 100%;
         height: 8rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
     .hour_par {
-        background-color: var(--sub-background);
         font-size: 1.1rem;
-        font-family: var(--font);
-    }
-
-    .icon_temp_container {
-        background-color: var(--sub-background);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
     .hourly_weather_icon {
-        background-color: var(--sub-background);
         width: 4.5rem;
         height: 4.5rem;
     }
 
     .hourly_temp {
         font-size: 1.1rem;
-        font-family: var(--font);
-        background-color: var(--sub-background);
     }
 }

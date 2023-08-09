@@ -5,7 +5,7 @@ import { ForecastContext } from "hooks/context/ForecastContext";
 import {
     getForecast,
     searchCity,
-    current,
+    getCurrent,
     currentPollution,
 } from "services/Fetch";
 import {
@@ -18,7 +18,6 @@ import {
 const App: React.FC = () => {
     const [units, setUnits] = useState<string>("metric");
     const [userInput, setUserInput] = useState<string>("");
-    // const [isMobile, setIsMobile] = useState<boolean>(false);
     const [searchResults, setSearchResults] = useState<[]>([]);
     const [forecast, setForecast] = useState<ForecastType | null>(null);
     const [pollution, setPollution] = useState<PollutionType | null>(null);
@@ -61,8 +60,7 @@ const App: React.FC = () => {
         } else {
             setDisplay(true);
             setNoResults(false);
-
-            current(observedCity, units).then((data) => {
+            getCurrent(observedCity, units).then((data) => {
                 setCurrentWeather(data);
             });
             getForecast(observedCity, units).then((data) => {
