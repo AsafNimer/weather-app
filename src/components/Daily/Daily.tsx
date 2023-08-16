@@ -3,7 +3,7 @@ import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 import { getWeatherIcon, getComingDaysNames } from "utils/HelperFunctions";
 
-function Daily(): JSX.Element {
+const Daily: React.FC = () => {
     const { forecast } = useContext(ForecastContext);
     return (
         <>
@@ -67,6 +67,6 @@ function Daily(): JSX.Element {
             </section>
         </>
     );
-}
+};
 
 export { Daily };

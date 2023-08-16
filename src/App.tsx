@@ -14,8 +14,7 @@ import {
     PollutionType,
     ForecastType,
 } from "types";
-
-const App: React.FC = () => {
+function App(): JSX.Element {
     const [units, setUnits] = useState<string>("metric");
     const [userInput, setUserInput] = useState<string>("");
     const [searchResults, setSearchResults] = useState<[]>([]);
@@ -41,6 +40,7 @@ const App: React.FC = () => {
             setDisplay(false);
         } else {
             searchCity(value).then((data) => {
+                console.log(data);
                 setSearchResults(data);
             });
         }
@@ -60,6 +60,7 @@ const App: React.FC = () => {
         } else {
             setDisplay(true);
             setNoResults(false);
+
             getCurrent(observedCity, units).then((data) => {
                 setCurrentWeather(data);
             });
@@ -90,7 +91,7 @@ const App: React.FC = () => {
         } else {
             setDisplay(false);
         }
-    }, [observedCity]);
+    }, [observedCity, units, currentWeather, forecast]);
 
     return (
         <section className={styles.app_container}>
@@ -178,6 +179,6 @@ const App: React.FC = () => {
             </ForecastContext.Provider>
         </section>
     );
-};
+}
 
 export { App };

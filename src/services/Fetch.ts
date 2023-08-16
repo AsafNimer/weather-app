@@ -12,7 +12,6 @@ const fetchData = async (
 
         if (response.ok) {
             const jsonResponse = await response.json();
-            console.log("Fetch response: ", jsonResponse);
             return jsonResponse;
         }
     } catch (err) {

@@ -63,9 +63,14 @@ export const getHumidity = (humidity: number | undefined) => {
         return "";
     }
 };
-export const getWind = (wind: number | undefined) => {
+export const getWind = (wind: number | undefined, units: string) => {
     if (wind !== undefined) {
-        return `Wind: ${Math.ceil(wind * 1.9438452)} Kn`;
+        const windSpeed = `Wind: ${Math.ceil(wind)}`;
+        if (units === "metric") {
+            return `${windSpeed} m/s`;
+        } else {
+            return `${windSpeed} mph`;
+        }
     } else {
         return "";
     }

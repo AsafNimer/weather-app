@@ -31,11 +31,11 @@ const pollutionRateArray: string[] = [
     "Poor",
     "Very Poor",
 ];
-
-function Current(): JSX.Element {
+const Current: React.FC = () => {
     const { currentWeather } = useContext(ForecastContext);
     const { pollution } = useContext(ForecastContext);
     const { observedCity } = useContext(ForecastContext);
+    const { units } = useContext(ForecastContext);
 
     const description: string | undefined =
         currentWeather?.weather[0].description;
@@ -47,6 +47,8 @@ function Current(): JSX.Element {
     const tempMax: number | undefined = currentWeather?.main.temp_max;
     const sunset: number | undefined = currentWeather?.sys.sunset;
     const sunrise: number | undefined = currentWeather?.sys.sunrise;
+
+    console.log("currentWeather", currentWeather);
 
     return (
         <section className={styles.current_component_container}>
@@ -81,7 +83,7 @@ function Current(): JSX.Element {
                         </p>
                         <p className={styles.wind}>
                             {getWindSVG(styles.data_icon)}
-                            {getWind(wind)}
+                            {getWind(wind, units)}
                         </p>
                         <p className={styles.pollution}>
                             {getPollutionSVG(styles.data_icon)}
@@ -117,6 +119,6 @@ function Current(): JSX.Element {
             </div>
         </section>
     );
-}
+};
 
 export { Current };

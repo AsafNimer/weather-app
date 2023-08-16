@@ -3,7 +3,7 @@ import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 import { getWeatherIcon, getTemp } from "utils/HelperFunctions";
 
-function Hourly(): JSX.Element {
+const Hourly: React.FC = () => {
     const { forecast } = useContext(ForecastContext);
     return (
         <>
@@ -65,6 +65,6 @@ function Hourly(): JSX.Element {
             </section>
         </>
     );
-}
+};
 
 export { Hourly };

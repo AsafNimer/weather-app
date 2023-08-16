@@ -1,9 +1,10 @@
 import styles from "./SwitchBtn.module.css";
-import { getCurrent, getForecast, searchCity } from "services/Fetch";
+import { getCurrent, getForecast } from "services/Fetch";
 import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
+import { FirstApiResultType } from "types";
 
-function SwitchBtn(): JSX.Element {
+const SwitchBtn: React.FC = () => {
     const {
         setForecast,
         observedCity,
@@ -13,15 +14,15 @@ function SwitchBtn(): JSX.Element {
         setCurrentWeather,
     } = useContext(ForecastContext);
 
-    const checkbox = document.getElementById("switch") as HTMLInputElement;
+    const fetchCurrentAndForecast = async (
+        city: FirstApiResultType,
+        unit: string
+    ) => {
+        const getCurrentResponse = await getCurrent(city, unit);
+        setCurrentWeather(getCurrentResponse);
 
-    const setCelcOrFahr = () => {
-        if (checkbox.checked) {
-            setUnits("imperial");
-            return units;
-        }
-        setUnits("metric");
-        return units;
+        const getForecastResponse = await getForecast(city, unit);
+        setForecast(getForecastResponse);
     };
 
     const handleSwitch = () => {
@@ -29,14 +30,13 @@ function SwitchBtn(): JSX.Element {
             console.log("returned");
             return;
         } else {
-            searchCity(observedCity.name).then(() => {
-                getCurrent(observedCity, setCelcOrFahr()).then((data) => {
-                    setCurrentWeather(data);
-                });
-                getForecast(observedCity, setCelcOrFahr()).then((data) => {
-                    setForecast(data);
-                });
-            });
+            if (units === "imperial") {
+                setUnits("metric");
+                fetchCurrentAndForecast(observedCity, "metric");
+            } else {
+                setUnits("imperial");
+                fetchCurrentAndForecast(observedCity, "imperial");
+            }
         }
     };
 
@@ -44,7 +44,7 @@ function SwitchBtn(): JSX.Element {
         <>
             <div className={styles.switch_container}>
                 <input
-                    onClick={handleSwitch}
+                    onChange={handleSwitch}
                     className={styles.switch_input}
                     type="checkbox"
                     id="switch"
@@ -53,6 +53,6 @@ function SwitchBtn(): JSX.Element {
             </div>
         </>
     );
-}
+};
 
 export { SwitchBtn };
