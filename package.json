@@ -29,6 +29,14 @@
             "react-app/jest"
         ]
     },
+    "plugins": [
+        [
+            "@babel/plugin-proposal-private-property-in-object",
+            {
+                "loose": true
+            }
+        ]
+    ],
     "browserslist": {
         "production": [
             ">0.2%",
