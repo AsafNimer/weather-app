@@ -18,7 +18,9 @@ function App(): JSX.Element {
     const [units, setUnits] = useState<string>("metric");
     const [userInput, setUserInput] = useState<string>("");
     const [searchResults, setSearchResults] = useState<[]>([]);
-    const [forecast, setForecast] = useState<ForecastType | null>(null);
+    const [forecast, setForecast] = useState<ForecastType | undefined>(
+        undefined
+    );
     const [pollution, setPollution] = useState<PollutionType | null>(null);
     const [display, setDisplay] = useState<boolean>(true);
     const [noResults, setNoResults] = useState<boolean>(false);

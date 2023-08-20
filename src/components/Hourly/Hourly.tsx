@@ -9,10 +9,10 @@ const Hourly: React.FC = () => {
         <>
             <section className={styles.hourly_component_container}>
                 <p className={styles.hourly_title}>
-                    {forecast !== null ? "Hourly" : ""}
+                    {forecast !== undefined ? "Hourly" : ""}
                 </p>
                 <div className={styles.hour_cards_container}>
-                    {forecast !== null
+                    {forecast !== undefined
                         ? forecast.list
                               .filter(
                                   (item) => forecast?.list.indexOf(item) <= 7
