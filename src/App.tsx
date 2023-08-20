@@ -93,7 +93,7 @@ function App(): JSX.Element {
         } else {
             setDisplay(false);
         }
-    }, [observedCity, units, currentWeather, forecast]);
+    }, [observedCity]);
 
     return (
         <section className={styles.app_container}>
