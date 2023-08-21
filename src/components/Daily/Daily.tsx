@@ -9,10 +9,10 @@ const Daily: React.FC = () => {
         <>
             <section className={styles.daily_component_container}>
                 <p className={styles.daily_title}>
-                    {forecast !== undefined ? "Daily" : ""}
+                    {forecast !== null ? "Daily" : ""}
                 </p>
                 <div className={styles.day_cards_container}>
-                    {forecast !== undefined
+                    {forecast !== null
                         ? forecast.list
                               .filter(
                                   (item) =>

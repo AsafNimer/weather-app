@@ -14,13 +14,11 @@ import {
     PollutionType,
     ForecastType,
 } from "types";
+
 function App(): JSX.Element {
     const [units, setUnits] = useState<string>("metric");
     const [userInput, setUserInput] = useState<string>("");
     const [searchResults, setSearchResults] = useState<[]>([]);
-    const [forecast, setForecast] = useState<ForecastType | undefined>(
-        undefined
-    );
     const [pollution, setPollution] = useState<PollutionType | null>(null);
     const [display, setDisplay] = useState<boolean>(true);
     const [noResults, setNoResults] = useState<boolean>(false);
@@ -30,8 +28,7 @@ function App(): JSX.Element {
     const [currentWeather, setCurrentWeather] = useState<CurrentType | null>(
         null
     );
-
-    console.log("window.innerWidth: ", window.innerWidth);
+    const [forecast, setForecast] = useState<ForecastType | null>(null);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -52,7 +49,7 @@ function App(): JSX.Element {
         setObservedCity(city);
     };
 
-    const handleCitySubmit = () => {
+    const handleCitySubmit = async () => {
         if (!observedCity || !userInput) {
             console.log("return");
             setDisplay(false);
@@ -63,15 +60,14 @@ function App(): JSX.Element {
             setDisplay(true);
             setNoResults(false);
 
-            getCurrent(observedCity, units).then((data) => {
-                setCurrentWeather(data);
-            });
-            getForecast(observedCity, units).then((data) => {
-                setForecast(data);
-            });
-            currentPollution(observedCity).then((data) => {
-                setPollution(data);
-            });
+            const currentData = await getCurrent(observedCity, units);
+            setCurrentWeather(currentData);
+
+            const forecastData = await getForecast(observedCity, units);
+            setForecast(forecastData);
+
+            const pollutionData = await currentPollution(observedCity);
+            setPollution(pollutionData);
         }
     };
 
@@ -93,14 +89,19 @@ function App(): JSX.Element {
         } else {
             setDisplay(false);
         }
+        return () => {
+            setCurrentWeather(null);
+            setForecast(null);
+            setPollution(null);
+        };
     }, [observedCity]);
 
     return (
         <section className={styles.app_container}>
             <div className={styles.search_container}>
-                <p className={styles.no_results_par}>
+                <h2 className={styles.no_results_par}>
                     {noResults ? "No Results" : ""}
-                </p>
+                </h2>
                 <h4 className={styles.app_title}>getWeather.</h4>
                 <div className={styles.input_container}>
                     <div className={styles.search_btn_container}>

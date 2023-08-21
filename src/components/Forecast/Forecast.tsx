@@ -5,13 +5,10 @@ import { ForecastContext } from "hooks/context/ForecastContext";
 import { useContext } from "react";
 
 function Forecast(props: addProps): JSX.Element {
-    const { observedCity } = useContext(ForecastContext);
     const { display } = useContext(ForecastContext);
 
-    console.log("FORECAST: ", props.forecast);
-
     const forecastCityNameValues = () => {
-        if (props.forecast === null || !observedCity) {
+        if (props.forecast === null) {
             return "";
         } else if (props.forecast?.city.name === undefined) {
             return "";
