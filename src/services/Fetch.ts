@@ -9,7 +9,6 @@ const fetchData = async (
 ) => {
     try {
         const response = await fetch(url);
-
         if (response.ok) {
             const jsonResponse = await response.json();
             return jsonResponse;

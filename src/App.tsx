@@ -30,7 +30,7 @@ function App(): JSX.Element {
     );
     const [forecast, setForecast] = useState<ForecastType | null>(null);
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = async (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setUserInput(value);
 
@@ -38,10 +38,8 @@ function App(): JSX.Element {
             setSearchResults([]);
             setDisplay(false);
         } else {
-            searchCity(value).then((data) => {
-                console.log(data);
-                setSearchResults(data);
-            });
+            const searchResponse = await searchCity(value);
+            setSearchResults(searchResponse);
         }
     };
 
@@ -89,11 +87,11 @@ function App(): JSX.Element {
         } else {
             setDisplay(false);
         }
-        return () => {
-            setCurrentWeather(null);
-            setForecast(null);
-            setPollution(null);
-        };
+        // return () => {
+        //     setCurrentWeather(null);
+        //     setForecast(null);
+        //     setPollution(null);
+        // };
     }, [observedCity]);
 
     return (
