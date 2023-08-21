@@ -163,7 +163,7 @@ function App(): JSX.Element {
                                   </li>
                               )
                           )
-                        : []}
+                        : ""}
                 </ul>
             </div>
             <ForecastContext.Provider
