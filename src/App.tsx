@@ -87,11 +87,11 @@ function App(): JSX.Element {
         } else {
             setDisplay(false);
         }
-        // return () => {
-        //     setCurrentWeather(null);
-        //     setForecast(null);
-        //     setPollution(null);
-        // };
+        return () => {
+            setCurrentWeather(null);
+            setForecast(null);
+            setPollution(null);
+        };
     }, [observedCity]);
 
     return (
