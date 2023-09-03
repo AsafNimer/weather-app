@@ -2,7 +2,7 @@ import { FirstApiResultType } from "types";
 
 const URL: string = "api.openweathermap.org";
 
-export const fetchData = async (
+const fetchData = async (
     url: string,
     value: string | FirstApiResultType,
     units?: string
